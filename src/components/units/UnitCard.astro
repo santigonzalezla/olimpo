@@ -1,0 +1,129 @@
+---
+interface Props {
+  name: string;
+  description: string;
+  beds: number;
+  baths: number;
+  image: string;
+}
+
+const { name, description, beds, baths, image } = Astro.props;
+
+import bedIcon from "../../assets/bed.svg?url";
+import bathIcon from "../../assets/bath.svg?url";
+import arrowIcon from "../../assets/arrowRight.svg?url";
+---
+
+<div class="unitCard">
+  <div class="unitCardImage">
+    <img src={image} alt={name} />
+  </div>
+  <div class="unitCardInfo">
+    <h3 class="unitCardName">{name}</h3>
+    <p class="unitCardDesc">{description}</p>
+    <div class="unitCardFooter">
+      <div class="unitCardSpecs">
+        <img class="icon" src={bedIcon} alt="camas" />
+        <span>{beds}</span>
+        <span class="dot">·</span>
+        <img class="icon" src={bathIcon} alt="baños" />
+        <span>{baths}</span>
+      </div>
+      <a href="#planos" class="unitCardCta">
+        Ver Planos
+        <img class="icon" src={arrowIcon} alt="" />
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .unitCard {
+    background: #fff;
+    width: 615px;
+    height: 471px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .unitCardImage {
+    width: 100%;
+    height: 252px;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .unitCardImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .unitCardInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 28px 32px 24px;
+    gap: 10px;
+  }
+
+  .unitCardName {
+    font-family: var(--f-stardom);
+    font-size: 26px;
+    line-height: 1.2;
+    color: #000;
+  }
+
+  .unitCardDesc {
+    font-family: var(--f-satoshi);
+    font-size: 16px;
+    line-height: 24px;
+    color: #000;
+    flex: 1;
+  }
+
+  .unitCardFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .unitCardSpecs {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--f-calistoga);
+    font-size: 16px;
+    color: #d9d9d9;
+  }
+
+  .dot {
+    color: #d9d9d9;
+  }
+
+  .unitCardCta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 40px;
+    padding: 0 24px;
+    background: var(--c-navy);
+    color: #fff;
+    font-family: var(--f-satoshi);
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+
+  .unitCardCta:hover {
+    opacity: 0.8;
+  }
+
+  .icon {
+    width: 15px;
+    height: 15px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+</style>

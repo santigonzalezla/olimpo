@@ -1,0 +1,64 @@
+---
+import UnitCard from "../components/units/UnitCard.astro";
+
+const floorPlanImg = "https://www.figma.com/api/mcp/asset/2bea5c45-ecb6-43e9-8a1b-a28b196a3a8e";
+
+const units = [
+  {
+    name: "Apartaestudio",
+    description:
+      "Funcional, moderno y pensado para quien quiere vivir bien sin complicaciones. Tu primer hogar propio, en el lugar correcto.",
+    beds: 1,
+    baths: 1,
+    image: floorPlanImg,
+  },
+  {
+    name: "3 Alcobas",
+    description:
+      "El hogar que tu familia merece. Espacio de sobra para vivir, crecer y crear los recuerdos que duran toda la vida.",
+    beds: 3,
+    baths: 2,
+    image: floorPlanImg,
+  },
+];
+---
+
+<section class="units" id="planos">
+  <h2 class="unitsTitle">Es hora de elegir tu espacio ideal</h2>
+  <div class="unitsGrid">
+    {units.map((unit) => (
+      <UnitCard
+        name={unit.name}
+        description={unit.description}
+        beds={unit.beds}
+        baths={unit.baths}
+        image={unit.image}
+      />
+    ))}
+  </div>
+</section>
+
+<style>
+  .units {
+    background: var(--c-dark);
+    height: 800px;
+    padding: 80px var(--px) 0;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .unitsTitle {
+    font-family: var(--f-satoshi);
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.4;
+    color: #fff;
+    max-width: 420px;
+  }
+
+  .unitsGrid {
+    display: flex;
+    gap: 15px;
+  }
+</style>

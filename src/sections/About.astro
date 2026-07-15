@@ -1,0 +1,142 @@
+---
+const buildingImg = "https://www.figma.com/api/mcp/asset/269cfee6-247f-4cc4-b931-6c06bf0b2a6b";
+const logoCircle = "https://www.figma.com/api/mcp/asset/b18de70e-313a-4ed2-a567-6ca2e6b94e1d";
+---
+
+<section class="about" id="ubicacion">
+  <div class="aboutLeft">
+    <div class="aboutPhotoWrap">
+      <img class="aboutPhoto" src={buildingImg} alt="IN Constructora" />
+      <div class="aboutCard">
+        <img class="aboutCardLogo" src={logoCircle} alt="IN Constructora logo" width="100" />
+        <p class="aboutCardName">IN Constructora</p>
+        <p class="aboutCardDesc">
+          Con años de experiencia en el sector inmobiliario de Valledupar,
+          Olimpo es nuestra nueva apuesta por una ciudad que merece espacios
+          modernos.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="aboutRight">
+    <h2 class="aboutTitle">Tu felicidad es nuestro compromiso</h2>
+    <p class="aboutDesc">
+      En IN Constructora creemos que un hogar es mucho más que cuatro paredes,
+      es donde sucede la vida. Por eso cada proyecto lo diseñamos pensando en
+      las familias que lo van a habitar, con calidad, transparencia y cuidado
+      en cada detalle.
+    </p>
+    <a href="#contacto" class="aboutCta">¡Hablemos Ya!</a>
+  </div>
+</section>
+
+<style>
+  .about {
+    display: flex;
+    align-items: center;
+    height: 800px;
+    background: #fff;
+    padding: 0 var(--px);
+    gap: 96px;
+  }
+
+  .aboutLeft {
+    flex-shrink: 0;
+    width: 620px;
+  }
+
+  .aboutPhotoWrap {
+    position: relative;
+    width: 524px;
+    height: 540px;
+  }
+
+  .aboutPhoto {
+    width: 524px;
+    height: 540px;
+    object-fit: cover;
+  }
+
+  .aboutCard {
+    position: absolute;
+    bottom: 60px;
+    right: -95px;
+    width: 305px;
+    height: 312px;
+    background: linear-gradient(220deg, #474747 4%, #222 44%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 24px;
+    box-shadow: 0 10px 15px rgba(151, 151, 151, 0.12);
+  }
+
+  .aboutCardLogo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .aboutCardName {
+    font-family: var(--f-poppins);
+    font-weight: 600;
+    font-size: 22px;
+    color: #fff;
+    text-align: center;
+  }
+
+  .aboutCardDesc {
+    font-family: var(--f-poppins);
+    font-weight: 400;
+    font-size: 14px;
+    color: #e5e5e5;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .aboutRight {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 512px;
+  }
+
+  .aboutTitle {
+    font-family: var(--f-satoshi);
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.4;
+    color: var(--c-text);
+  }
+
+  .aboutDesc {
+    font-family: var(--f-satoshi);
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--c-body);
+  }
+
+  .aboutCta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    width: 195px;
+    background: var(--c-navy);
+    color: #fff;
+    font-family: var(--f-satoshi);
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+
+  .aboutCta:hover {
+    opacity: 0.8;
+  }
+</style>

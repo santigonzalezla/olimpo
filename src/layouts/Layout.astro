@@ -1,0 +1,87 @@
+---
+interface Props
+{
+    title?: string;
+    description?: string;
+}
+
+const {
+    title = "Olimpo — Tu nuevo lugar en el mundo | IN Constructora",
+    description = "Proyecto residencial en Valledupar. Apartaestudios y apartamentos de 3 alcobas disponibles en preventa."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+    <link rel="icon" href="/favicon.ico"/>
+    <meta name="generator" content={Astro.generator}/>
+    <title>{title}</title>
+    <meta name="description" content={description}/>
+    <link rel="preconnect" href="https://api.fontshare.com"/>
+    <link
+        href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,700&f[]=stardom@400&display=swap"
+        rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Calistoga&family=Montserrat:wght@500,600&family=Poppins:wght@400,600&display=swap"
+        rel="stylesheet"
+    />
+</head>
+<body>
+<slot/>
+</body>
+</html>
+
+<style is:global>
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    :root {
+        --c-navy: #142B3F;
+        --c-dark: #131B23;
+        --c-blue: #35B7FA;
+        --c-text: #242527;
+        --c-body: #1E1E1E;
+        --c-white: #FEFFFE;
+
+        --f-satoshi: 'Satoshi', sans-serif;
+        --f-stardom: 'Stardom', serif;
+        --f-calistoga: 'Calistoga', serif;
+        --f-poppins: 'Poppins', sans-serif;
+        --f-montserrat: 'Montserrat', sans-serif;
+
+        --px: 98px;
+    }
+
+    html,
+    body {
+        width: 100%;
+        font-family: var(--f-satoshi), serif;
+        color: var(--c-text);
+        overflow-x: hidden;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    ul {
+        list-style: none;
+    }
+</style>

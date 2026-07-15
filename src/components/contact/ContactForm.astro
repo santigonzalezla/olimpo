@@ -1,0 +1,110 @@
+---
+import arrowIcon from "../../assets/arrowRight.svg?url";
+---
+
+<form class="contactForm" action="#" method="POST">
+  <div class="contactFormFields">
+    <input
+      class="contactFormInput"
+      type="text"
+      name="nombre"
+      placeholder="Nombre"
+      required
+    />
+    <input
+      class="contactFormInput"
+      type="email"
+      name="email"
+      placeholder="Email"
+      required
+    />
+    <textarea
+      class="contactFormTextarea"
+      name="opcion"
+      placeholder="Opción Favorita"
+    ></textarea>
+  </div>
+  <button type="submit" class="contactFormSubmit">
+    Enviar Mensaje
+    <img class="icon" src={arrowIcon} alt="" />
+  </button>
+</form>
+
+<style>
+  .contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    background: #2b323d;
+    padding: 24px 16px;
+    width: 541px;
+    height: 409px;
+  }
+
+  .contactFormFields {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .contactFormInput {
+    background: #000a1b;
+    border: none;
+    height: 53px;
+    padding: 0 26px;
+    font-family: var(--f-montserrat);
+    font-weight: 500;
+    font-size: 14px;
+    color: #fff;
+    width: 100%;
+  }
+
+  .contactFormInput::placeholder {
+    color: #999;
+  }
+
+  .contactFormTextarea {
+    background: #000a1b;
+    border: none;
+    height: 119px;
+    padding: 16px 26px;
+    font-family: var(--f-montserrat);
+    font-weight: 500;
+    font-size: 14px;
+    color: #fff;
+    width: 100%;
+    resize: none;
+  }
+
+  .contactFormTextarea::placeholder {
+    color: #999;
+  }
+
+  .contactFormSubmit {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    height: 56px;
+    padding: 0 32px;
+    background: var(--c-blue);
+    color: #fff;
+    font-family: var(--f-montserrat);
+    font-weight: 600;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: opacity 0.2s ease;
+  }
+
+  .contactFormSubmit:hover {
+    opacity: 0.85;
+  }
+
+  .icon {
+    width: 15px;
+    height: 15px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+</style>

@@ -1,0 +1,117 @@
+---
+const amenityImg1 = "https://www.figma.com/api/mcp/asset/f38a76bc-6efe-47ed-b668-d9a73edc0005";
+const amenityImg2 = "https://www.figma.com/api/mcp/asset/5238fd81-5914-4c27-a40a-13906d30d439";
+const amenityImg3 = "https://www.figma.com/api/mcp/asset/43d0417d-f38e-4b37-b491-2ec41904acc6";
+const amenityImg4 = "https://www.figma.com/api/mcp/asset/20833829-4abd-4fd1-995f-3da656976ab5";
+import arrowIcon from "../assets/arrowRight.svg?url";
+---
+
+<section class="benefits" id="precios">
+  <h2 class="benefitsTitle">Descubre las amenidades que ofrecemos</h2>
+  <div class="benefitsGrid">
+    <div class="benefitsItem">
+      <img src={amenityImg1} alt="Lavandería" />
+    </div>
+    <div class="benefitsItem benefitsItemFeatured">
+      <img src={amenityImg2} alt="Coworking" />
+      <div class="benefitsCard">
+        <div class="benefitsCardText">
+          <p class="benefitsCardTitle">Coworking</p>
+          <p class="benefitsCardSub">Tu espacio de trabajo</p>
+        </div>
+        <div class="benefitsCardIcon">
+          <img class="icon" src={arrowIcon} alt="" />
+        </div>
+      </div>
+    </div>
+    <div class="benefitsItem">
+      <img src={amenityImg3} alt="Zona infantil" />
+    </div>
+    <div class="benefitsItem">
+      <img src={amenityImg4} alt="Sala de juntas" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .benefits {
+    background: #fff;
+    height: 800px;
+    padding: 73px var(--px) 0;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .benefitsTitle {
+    font-family: var(--f-satoshi);
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.4;
+    color: var(--c-text);
+    max-width: 509px;
+  }
+
+  .benefitsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 31px;
+    height: 478px;
+  }
+
+  .benefitsItem {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .benefitsItem img:not(.icon) {
+    width: 100%;
+    height: 478px;
+    object-fit: cover;
+  }
+
+  .icon {
+    width: 15px;
+    height: 15px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .benefitsCard {
+    position: absolute;
+    bottom: 0;
+    left: 17px;
+    width: 253px;
+    height: 88px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+  }
+
+  .benefitsCardTitle {
+    font-family: var(--f-satoshi);
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--c-text);
+  }
+
+  .benefitsCardSub {
+    font-family: var(--f-satoshi);
+    font-weight: 300;
+    font-size: 12px;
+    color: var(--c-body);
+    margin-top: 4px;
+  }
+
+  .benefitsCardIcon {
+    width: 57px;
+    height: 57px;
+    background: var(--c-navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+</style>
