@@ -3,23 +3,33 @@ import Logo from "../components/hero/Logo.astro";
 import NavLinks from "../components/hero/NavLinks.astro";
 import NavCta from "../components/hero/NavCta.astro";
 import HeroSlider from "../components/hero/HeroSlider.astro";
+import MobileSidebar from "../components/hero/MobileSidebar";
 
 import locationIcon from "../assets/location.svg?url";
 ---
 
 <section class="hero" id="inicio">
-    <HeroSlider />
+    <HeroSlider/>
 
     <nav class="nav">
-        <div class="navLeft"><Logo /></div>
-        <div class="navCenter"><NavLinks /></div>
-        <div class="navRight"><NavCta /></div>
+        <div class="navLeft">
+            <Logo/>
+        </div>
+        <div class="navCenter">
+            <NavLinks/>
+        </div>
+        <div class="navRight">
+            <NavCta/>
+        </div>
+        <div class="navMobile">
+            <MobileSidebar client:load/>
+        </div>
     </nav>
 
     <div class="heroBody">
         <div class="heroContent">
             <p class="heroLocation">
-                <img class="icon" src={locationIcon} alt="" />
+                <img class="icon" src={locationIcon} alt=""/>
                 Valledupar, Cesar
             </p>
             <h1 class="heroTitle">Descubre tu nuevo lugar en el mundo.</h1>
@@ -86,6 +96,10 @@ import locationIcon from "../assets/location.svg?url";
         justify-content: flex-end;
     }
 
+    .navMobile {
+        display: none;
+    }
+
     .heroBody {
         position: relative;
         z-index: 2;
@@ -139,8 +153,8 @@ import locationIcon from "../assets/location.svg?url";
         height: 45px;
         width: 160px;
         background: var(--c-navy);
-        color: #fff;
-        font-family: var(--f-satoshi);
+        color: #FFF;
+        font-family: var(--f-satoshi), sans-serif;
         font-weight: 700;
         font-size: 16px;
         cursor: pointer;
@@ -157,8 +171,8 @@ import locationIcon from "../assets/location.svg?url";
         justify-content: center;
         height: 45px;
         width: 160px;
-        border: 2px solid #fff;
-        color: #fff;
+        border: 2px solid #FFF;
+        color: #FFF;
         font-family: var(--f-satoshi);
         font-weight: 700;
         font-size: 16px;
@@ -167,7 +181,7 @@ import locationIcon from "../assets/location.svg?url";
     }
 
     .btnOutline:hover {
-        background: #fff;
+        background: #FFF;
         color: var(--c-navy);
     }
 
@@ -202,5 +216,102 @@ import locationIcon from "../assets/location.svg?url";
         height: 15px;
         object-fit: contain;
         flex-shrink: 0;
+    }
+
+    @media (max-width: 1024px) {
+        .hero {
+            height: 700px;
+        }
+
+        .heroTitle {
+            font-size: 48px;
+        }
+
+        .heroContent {
+            max-width: 560px;
+        }
+
+        .statNumber {
+            font-size: 36px;
+        }
+
+        .heroStats {
+            gap: 32px;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .hero {
+            height: 100dvh;
+        }
+
+        .nav {
+            height: 72px;
+        }
+
+        .navCenter {
+            display: none;
+        }
+
+        .navRight {
+            display: none;
+        }
+
+        .navMobile {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            flex: 1;
+        }
+
+        .heroBody {
+            padding: 28px var(--px) 40px;
+            justify-content: center;
+            gap: 70px;
+        }
+
+        .heroStats {
+            align-self: flex-end;
+        }
+
+        .stat {
+            align-items: center;
+        }
+
+        .heroTitle {
+            font-size: 34px;
+        }
+
+        .heroSubtitle {
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        .heroContent {
+            gap: 20px;
+        }
+
+        .heroCtas {
+            flex-wrap: wrap;
+        }
+
+        .btnFilled,
+        .btnOutline {
+            width: 140px;
+            height: 42px;
+            font-size: 14px;
+        }
+
+        .statNumber {
+            font-size: 28px;
+        }
+
+        .statLabel {
+            font-size: 11px;
+        }
+
+        .heroStats {
+            gap: 20px;
+        }
     }
 </style>

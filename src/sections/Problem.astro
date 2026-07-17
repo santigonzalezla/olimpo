@@ -125,4 +125,83 @@ const smallImg3 = "https://www.figma.com/api/mcp/asset/0edab0aa-2005-4de4-a978-2
     height: 100%;
     object-fit: cover;
   }
+
+  @media (max-width: 1024px) {
+    .problem {
+      height: auto;
+      padding: 60px var(--px);
+      gap: 48px;
+    }
+
+    .problemText {
+      width: 320px;
+    }
+
+    .problemTitle {
+      font-size: 32px;
+    }
+
+    .problemImages {
+      height: 500px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .problem {
+      flex-direction: column;
+      height: 100dvh;
+      padding: 48px var(--px) 40px;
+      gap: 50px;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .problemImages {
+      order: -1;
+      display: flex;
+      flex: none;
+      height: auto;
+      width: 100%;
+      grid-template-columns: unset;
+    }
+
+    .problemSmalls {
+      flex-direction: row;
+      gap: 8px;
+      width: 100%;
+    }
+
+    .problemSmalls img {
+      width: 88px;
+      height: 88px;
+    }
+
+    .problemLarge {
+      display: none;
+    }
+
+    .problemText {
+      width: 100%;
+      gap: 20px;
+    }
+
+    .problemTitle {
+      font-size: 30px;
+    }
+
+    .problemBody {
+      max-width: 100%;
+    }
+
+    .problemBody p {
+      font-size: 14px;
+      font-weight: 200;
+    }
+
+    .problemTagline {
+      text-align: center;
+      align-self: center;
+    }
+  }
 </style>

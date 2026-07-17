@@ -126,4 +126,48 @@ import arrowIcon from "../../assets/arrowRight.svg?url";
     object-fit: contain;
     flex-shrink: 0;
   }
+
+  @media (max-width: 767px) {
+    .unitCard {
+      width: 300px;
+      height: 80%;
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .unitCardImage {
+      flex: 2;
+      min-height: 0;
+      height: auto;
+    }
+
+    .unitCardInfo {
+      padding: 14px 18px 14px;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .unitCardName {
+      font-size: 20px;
+    }
+
+    .unitCardDesc {
+      font-size: 13px;
+      line-height: 1.4;
+      flex: none;
+    }
+
+    .unitCardSpecs {
+      font-size: 13px;
+    }
+
+    .unitCardCta {
+      font-size: 13px;
+      height: 36px;
+      padding: 0 14px;
+      gap: 6px;
+    }
+  }
 </style>

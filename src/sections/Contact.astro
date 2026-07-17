@@ -66,4 +66,54 @@ const mapImg = "https://www.figma.com/api/mcp/asset/fa824a05-d727-4bc1-b03f-c426
     color: #fff;
     max-width: 525px;
   }
+
+  @media (max-width: 1024px) {
+    .contact {
+      height: auto;
+      padding: 60px var(--px);
+      gap: 48px;
+    }
+
+    .contactMap {
+      width: 360px;
+      height: 460px;
+    }
+
+    .contactTitle {
+      font-size: 30px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .contact {
+      flex-direction: column;
+      height: 100dvh;
+      padding: 0;
+      gap: 0;
+      align-items: stretch;
+      overflow: hidden;
+    }
+
+    .contactMap {
+      width: 100%;
+      height: 300px;
+      flex-shrink: 0;
+    }
+
+    .contactInfo {
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      padding: 28px var(--px) 32px;
+      gap: 16px;
+    }
+
+    .contactTitle {
+      font-size: 24px;
+    }
+
+    .contactDesc {
+      display: none;
+    }
+  }
 </style>

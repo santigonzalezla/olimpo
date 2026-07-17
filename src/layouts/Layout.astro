@@ -66,6 +66,18 @@ const {
         --f-montserrat: 'Montserrat', sans-serif;
 
         --px: 98px;
+  }
+
+  @media (max-width: 1024px) {
+    :root { --px: 48px; }
+  }
+
+  @media (max-width: 767px) {
+    :root { --px: 24px; }
+  }
+
+    html {
+        scroll-behavior: smooth;
     }
 
     html,
@@ -79,6 +91,99 @@ const {
     img {
         display: block;
         max-width: 100%;
+    }
+
+    .sidebarOverlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 9998;
+    }
+
+    .sidebarOverlay.open {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .mobileSidebar {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 280px;
+        height: 100%;
+        background: #131B23;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        z-index: 9999;
+    }
+
+    .mobileSidebar.open {
+        transform: translateX(0);
+    }
+
+    .sidebarHeader {
+        display: flex;
+        justify-content: flex-end;
+        padding: 24px 24px 8px;
+    }
+
+    .sidebarClose {
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 28px;
+        cursor: pointer;
+        padding: 4px 8px;
+        line-height: 1;
+        opacity: 0.8;
+        transition: opacity 0.2s;
+    }
+
+    .sidebarClose:hover {
+        opacity: 1;
+    }
+
+    .sidebarNav {
+        display: flex;
+        flex-direction: column;
+        padding: 24px 32px;
+    }
+
+    .sidebarNavLink {
+        color: #fff;
+        font-family: 'Satoshi', sans-serif;
+        font-size: 20px;
+        font-weight: 500;
+        padding: 16px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        text-decoration: none;
+        display: block;
+        transition: opacity 0.2s;
+    }
+
+    .sidebarNavLink:last-child {
+        border-bottom: none;
+    }
+
+    .sidebarNavLink:hover {
+        opacity: 0.65;
+    }
+
+    .navBurgerBtn {
+        background: none;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        padding: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     a {

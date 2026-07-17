@@ -25,16 +25,18 @@ const units = [
 
 <section class="units" id="planos">
   <h2 class="unitsTitle">Es hora de elegir tu espacio ideal</h2>
-  <div class="unitsGrid">
-    {units.map((unit) => (
-      <UnitCard
-        name={unit.name}
-        description={unit.description}
-        beds={unit.beds}
-        baths={unit.baths}
-        image={unit.image}
-      />
-    ))}
+  <div class="unitsCardsWrap">
+    <div class="unitsGrid">
+      {units.map((unit) => (
+        <UnitCard
+          name={unit.name}
+          description={unit.description}
+          beds={unit.beds}
+          baths={unit.baths}
+          image={unit.image}
+        />
+      ))}
+    </div>
   </div>
 </section>
 
@@ -46,6 +48,10 @@ const units = [
     display: flex;
     flex-direction: column;
     gap: 48px;
+  }
+
+  .unitsCardsWrap {
+    display: contents;
   }
 
   .unitsTitle {
@@ -60,5 +66,52 @@ const units = [
   .unitsGrid {
     display: flex;
     gap: 15px;
+  }
+
+  @media (max-width: 1024px) {
+    .units {
+      height: auto;
+      padding-bottom: 60px;
+    }
+
+    .unitsTitle {
+      font-size: 34px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .units {
+      height: 100dvh;
+      padding: 48px var(--px) 48px;
+      gap: 24px;
+    }
+
+    .unitsTitle {
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+
+    .unitsCardsWrap {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .unitsGrid {
+      flex: 1;
+      min-height: 0;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      gap: 12px;
+      scrollbar-width: none;
+      align-items: center;
+    }
+
+    .unitsGrid::-webkit-scrollbar {
+      display: none;
+    }
   }
 </style>

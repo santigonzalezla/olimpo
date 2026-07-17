@@ -4,10 +4,16 @@ const amenityImg2 = "https://www.figma.com/api/mcp/asset/5238fd81-5914-4c27-a40a
 const amenityImg3 = "https://www.figma.com/api/mcp/asset/43d0417d-f38e-4b37-b491-2ec41904acc6";
 const amenityImg4 = "https://www.figma.com/api/mcp/asset/20833829-4abd-4fd1-995f-3da656976ab5";
 import arrowIcon from "../assets/arrowRight.svg?url";
+import BenefitsGallery from "../components/benefits/BenefitsGallery";
 ---
 
 <section class="benefits" id="precios">
   <h2 class="benefitsTitle">Descubre las amenidades que ofrecemos</h2>
+
+  <div class="benefitsMobile">
+    <BenefitsGallery client:load />
+  </div>
+
   <div class="benefitsGrid">
     <div class="benefitsItem">
       <img src={amenityImg1} alt="Lavandería" />
@@ -113,5 +119,32 @@ import arrowIcon from "../assets/arrowRight.svg?url";
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+  }
+
+  .benefitsMobile {
+    display: none;
+  }
+
+  @media (max-width: 767px) {
+    .benefits {
+      height: 100dvh;
+      padding: 48px var(--px) 48px;
+      gap: 24px;
+    }
+
+    .benefitsTitle {
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+
+    .benefitsGrid {
+      display: none;
+    }
+
+    .benefitsMobile {
+      display: flex;
+      flex: 1;
+      min-height: 0;
+    }
   }
 </style>
