@@ -5,7 +5,7 @@ import NavCta from "../components/hero/NavCta.astro";
 import HeroSlider from "../components/hero/HeroSlider.astro";
 import MobileSidebar from "../components/hero/MobileSidebar";
 
-import locationIcon from "../assets/location.svg?url";
+import LocationIcon from "../assets/svg/location.svg";
 ---
 
 <section class="hero" id="inicio">
@@ -29,7 +29,7 @@ import locationIcon from "../assets/location.svg?url";
     <div class="heroBody">
         <div class="heroContent">
             <p class="heroLocation">
-                <img class="icon" src={locationIcon} alt=""/>
+                <LocationIcon class="icon" />
                 Valledupar, Cesar
             </p>
             <h1 class="heroTitle">Descubre tu nuevo lugar en el mundo.</h1>
@@ -127,7 +127,7 @@ import locationIcon from "../assets/location.svg?url";
     }
 
     .heroTitle {
-        font-family: var(--f-satoshi);
+        font-family: 'Satoshi', sans-serif;
         font-weight: 700;
         font-size: 70px;
         line-height: 1.4;
@@ -154,7 +154,7 @@ import locationIcon from "../assets/location.svg?url";
         width: 160px;
         background: var(--c-navy);
         color: #FFF;
-        font-family: var(--f-satoshi), sans-serif;
+        font-family: 'Satoshi', sans-serif;
         font-weight: 700;
         font-size: 16px;
         cursor: pointer;
@@ -173,7 +173,7 @@ import locationIcon from "../assets/location.svg?url";
         width: 160px;
         border: 2px solid #FFF;
         color: #FFF;
-        font-family: var(--f-satoshi);
+        font-family: 'Satoshi', sans-serif;
         font-weight: 700;
         font-size: 16px;
         cursor: pointer;
@@ -199,7 +199,7 @@ import locationIcon from "../assets/location.svg?url";
     }
 
     .statNumber {
-        font-family: var(--f-satoshi);
+        font-family: 'Satoshi', sans-serif;
         font-weight: 700;
         font-size: 48px;
         line-height: 1.4;

@@ -1,5 +1,6 @@
 ---
 import UnitCard from "../components/units/UnitCard.astro";
+import PlansModal from "../components/units/PlansModal/PlansModal";
 
 const floorPlanImg = "https://www.figma.com/api/mcp/asset/2bea5c45-ecb6-43e9-8a1b-a28b196a3a8e";
 
@@ -39,6 +40,7 @@ const units = [
     </div>
   </div>
 </section>
+<PlansModal client:load />
 
 <style>
   .units {
@@ -55,7 +57,7 @@ const units = [
   }
 
   .unitsTitle {
-    font-family: var(--f-satoshi);
+    font-family: 'Satoshi', sans-serif;
     font-weight: 700;
     font-size: 42px;
     line-height: 1.4;

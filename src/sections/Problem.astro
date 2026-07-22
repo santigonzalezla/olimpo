@@ -1,8 +1,13 @@
 ---
-const largeImg = "https://www.figma.com/api/mcp/asset/9fe2f44b-410a-4f6e-be99-ea05a02fce5a";
-const smallImg1 = "https://www.figma.com/api/mcp/asset/a528d682-c800-453c-91f1-43f69f79be7d";
-const smallImg2 = "https://www.figma.com/api/mcp/asset/fb0e3f4f-00a6-4d37-b713-c49b125ef2a8";
-const smallImg3 = "https://www.figma.com/api/mcp/asset/0edab0aa-2005-4de4-a978-2f1471910eea";
+import largeImgSrc from "../assets/images/fachada4.png";
+import smallImg1Src from "../assets/images/fachada3.png";
+import smallImg2Src from "../assets/images/zonasocial.png";
+import smallImg3Src from "../assets/images/lobby1.png";
+
+const largeImg = largeImgSrc.src;
+const smallImg1 = smallImg1Src.src;
+const smallImg2 = smallImg2Src.src;
+const smallImg3 = smallImg3Src.src;
 ---
 
 <section class="problem" id="proyecto">
@@ -56,10 +61,7 @@ const smallImg3 = "https://www.figma.com/api/mcp/asset/0edab0aa-2005-4de4-a978-2
   }
 
   .problemTitle {
-    font-family: var(--f-satoshi);
-    font-weight: 700;
     font-size: 42px;
-    line-height: 1.4;
     color: #131b23;
   }
 
@@ -81,7 +83,7 @@ const smallImg3 = "https://www.figma.com/api/mcp/asset/0edab0aa-2005-4de4-a978-2
     width: 195px;
     background: var(--c-navy);
     color: #fff;
-    font-family: var(--f-satoshi);
+    font-family: 'Satoshi', sans-serif;
     font-weight: 700;
     font-size: 16px;
     cursor: pointer;

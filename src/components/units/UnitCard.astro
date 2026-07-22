@@ -9,9 +9,9 @@ interface Props {
 
 const { name, description, beds, baths, image } = Astro.props;
 
-import bedIcon from "../../assets/bed.svg?url";
-import bathIcon from "../../assets/bath.svg?url";
-import arrowIcon from "../../assets/arrowRight.svg?url";
+import BedIcon from "../../assets/svg/bed.svg";
+import BathIcon from "../../assets/svg/bath.svg";
+import PlansCta from "./PlansCta/PlansCta";
 ---
 
 <div class="unitCard">
@@ -23,16 +23,13 @@ import arrowIcon from "../../assets/arrowRight.svg?url";
     <p class="unitCardDesc">{description}</p>
     <div class="unitCardFooter">
       <div class="unitCardSpecs">
-        <img class="icon" src={bedIcon} alt="camas" />
+        <BedIcon class="icon" />
         <span>{beds}</span>
         <span class="dot">·</span>
-        <img class="icon" src={bathIcon} alt="baños" />
+        <BathIcon class="icon" />
         <span>{baths}</span>
       </div>
-      <a href="#planos" class="unitCardCta">
-        Ver Planos
-        <img class="icon" src={arrowIcon} alt="" />
-      </a>
+      <PlansCta client:load name={name} />
     </div>
   </div>
 </div>
@@ -75,7 +72,7 @@ import arrowIcon from "../../assets/arrowRight.svg?url";
   }
 
   .unitCardDesc {
-    font-family: var(--f-satoshi);
+    font-family: 'Satoshi', sans-serif;
     font-size: 16px;
     line-height: 24px;
     color: #000;
@@ -92,32 +89,13 @@ import arrowIcon from "../../assets/arrowRight.svg?url";
     display: flex;
     align-items: center;
     gap: 6px;
-    font-family: var(--f-calistoga);
+    font-family: 'Satoshi', sans-serif;
     font-size: 16px;
     color: #d9d9d9;
   }
 
   .dot {
     color: #d9d9d9;
-  }
-
-  .unitCardCta {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    height: 40px;
-    padding: 0 24px;
-    background: var(--c-navy);
-    color: #fff;
-    font-family: var(--f-satoshi);
-    font-weight: 700;
-    font-size: 16px;
-    cursor: pointer;
-    transition: opacity 0.2s ease;
-  }
-
-  .unitCardCta:hover {
-    opacity: 0.8;
   }
 
   .icon {
@@ -163,11 +141,5 @@ import arrowIcon from "../../assets/arrowRight.svg?url";
       font-size: 13px;
     }
 
-    .unitCardCta {
-      font-size: 13px;
-      height: 36px;
-      padding: 0 14px;
-      gap: 6px;
-    }
   }
 </style>

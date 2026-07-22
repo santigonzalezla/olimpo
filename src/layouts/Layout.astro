@@ -21,15 +21,8 @@ const {
     <meta name="generator" content={Astro.generator}/>
     <title>{title}</title>
     <meta name="description" content={description}/>
-    <link rel="preconnect" href="https://api.fontshare.com"/>
     <link
-        href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,700&f[]=stardom@400&display=swap"
-        rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Calistoga&family=Montserrat:wght@500,600&family=Poppins:wght@400,600&display=swap"
+        href="https://api.fontshare.com/v2/css?f[]=stardom@400&display=swap"
         rel="stylesheet"
     />
 </head>
@@ -39,10 +32,25 @@ const {
 </html>
 
 <script>
-  import "../scripts/animations";
+    import "../scripts/animations";
 </script>
 
 <style is:global>
+    @font-face {
+        font-family: 'Satoshi';
+        src: url('/fonts/satoshi/Satoshi-Variable.ttf') format('truetype');
+        font-weight: 300 900;
+        font-style: normal;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'Satoshi';
+        src: url('/fonts/satoshi/Satoshi-VariableItalic.ttf') format('truetype');
+        font-weight: 300 900;
+        font-style: italic;
+        font-display: swap;
+    }
+
     *,
     *::before,
     *::after {
@@ -59,22 +67,22 @@ const {
         --c-body: #1E1E1E;
         --c-white: #FEFFFE;
 
-        --f-satoshi: 'Satoshi', sans-serif;
         --f-stardom: 'Stardom', serif;
-        --f-calistoga: 'Calistoga', serif;
-        --f-poppins: 'Poppins', sans-serif;
-        --f-montserrat: 'Montserrat', sans-serif;
 
         --px: 98px;
-  }
+    }
 
-  @media (max-width: 1024px) {
-    :root { --px: 48px; }
-  }
+    @media (max-width: 1024px) {
+        :root {
+            --px: 48px;
+        }
+    }
 
-  @media (max-width: 767px) {
-    :root { --px: 24px; }
-  }
+    @media (max-width: 767px) {
+        :root {
+            --px: 24px;
+        }
+    }
 
     html {
         scroll-behavior: smooth;
@@ -83,7 +91,7 @@ const {
     html,
     body {
         width: 100%;
-        font-family: var(--f-satoshi), serif;
+        font-family: 'Satoshi', sans-serif;
         color: var(--c-text);
         overflow-x: hidden;
     }
@@ -115,7 +123,7 @@ const {
         width: 280px;
         height: 100%;
         background: #131B23;
-        color: #fff;
+        color: #FFF;
         display: flex;
         flex-direction: column;
         transform: translateX(100%);
@@ -136,7 +144,7 @@ const {
     .sidebarClose {
         background: none;
         border: none;
-        color: #fff;
+        color: #FFF;
         font-size: 28px;
         cursor: pointer;
         padding: 4px 8px;
@@ -156,7 +164,7 @@ const {
     }
 
     .sidebarNavLink {
-        color: #fff;
+        color: #FFF;
         font-family: 'Satoshi', sans-serif;
         font-size: 20px;
         font-weight: 500;
@@ -178,7 +186,7 @@ const {
     .navBurgerBtn {
         background: none;
         border: none;
-        color: #fff;
+        color: #FFF;
         cursor: pointer;
         padding: 4px;
         display: flex;

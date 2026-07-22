@@ -5,7 +5,10 @@ import Problem from "../sections/Problem.astro";
 import Units from "../sections/Units.astro";
 import Benefits from "../sections/Benefits.astro";
 import About from "../sections/About.astro";
+import MapSection from "../sections/MapSection.astro";
 import Contact from "../sections/Contact.astro";
+import Footer from "../sections/Footer.astro";
+import WhatsAppButton from "../components/WhatsAppButton/WhatsAppButton";
 ---
 
 <Layout>
@@ -14,5 +17,8 @@ import Contact from "../sections/Contact.astro";
     <Units/>
     <Benefits/>
     <About/>
+    <MapSection/>
     <Contact/>
+    <Footer/>
+    <WhatsAppButton client:load />
 </Layout>

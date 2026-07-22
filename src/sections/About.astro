@@ -1,12 +1,15 @@
 ---
-const buildingImg = "https://www.figma.com/api/mcp/asset/269cfee6-247f-4cc4-b931-6c06bf0b2a6b";
-const logoCircle = "https://www.figma.com/api/mcp/asset/b18de70e-313a-4ed2-a567-6ca2e6b94e1d";
+import largeImgSrc from "../assets/images/fachada4.png";
+import logoIn from "../assets/images/logoinconstructora.png";
+
+const largeImg = largeImgSrc.src;
+const logoCircle = logoIn.src;
 ---
 
 <section class="about" id="ubicacion">
   <div class="aboutLeft">
     <div class="aboutPhotoWrap">
-      <img class="aboutPhoto" src={buildingImg} alt="IN Constructora" />
+      <img class="aboutPhoto" src={largeImg} alt="IN Constructora" />
       <div class="aboutCard">
         <img class="aboutCardLogo" src={logoCircle} alt="IN Constructora logo" width="100" />
         <p class="aboutCardName">IN Constructora</p>
@@ -82,7 +85,7 @@ const logoCircle = "https://www.figma.com/api/mcp/asset/b18de70e-313a-4ed2-a567-
   }
 
   .aboutCardName {
-    font-family: var(--f-poppins);
+    font-family: 'Satoshi', sans-serif;
     font-weight: 600;
     font-size: 22px;
     color: #fff;
@@ -90,7 +93,7 @@ const logoCircle = "https://www.figma.com/api/mcp/asset/b18de70e-313a-4ed2-a567-
   }
 
   .aboutCardDesc {
-    font-family: var(--f-poppins);
+    font-family: 'Satoshi', sans-serif;
     font-weight: 400;
     font-size: 14px;
     color: #e5e5e5;
@@ -106,7 +109,7 @@ const logoCircle = "https://www.figma.com/api/mcp/asset/b18de70e-313a-4ed2-a567-
   }
 
   .aboutTitle {
-    font-family: var(--f-satoshi);
+    font-family: 'Satoshi', sans-serif;
     font-weight: 700;
     font-size: 42px;
     line-height: 1.4;
@@ -114,7 +117,7 @@ const logoCircle = "https://www.figma.com/api/mcp/asset/b18de70e-313a-4ed2-a567-
   }
 
   .aboutDesc {
-    font-family: var(--f-satoshi);
+    font-family: 'Satoshi', sans-serif;
     font-weight: 300;
     font-size: 18px;
     line-height: 1.5;
@@ -129,7 +132,7 @@ const logoCircle = "https://www.figma.com/api/mcp/asset/b18de70e-313a-4ed2-a567-
     width: 195px;
     background: var(--c-navy);
     color: #fff;
-    font-family: var(--f-satoshi);
+    font-family: 'Satoshi', sans-serif;
     font-weight: 700;
     font-size: 16px;
     cursor: pointer;

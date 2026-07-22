@@ -3,8 +3,15 @@ const amenityImg1 = "https://www.figma.com/api/mcp/asset/f38a76bc-6efe-47ed-b668
 const amenityImg2 = "https://www.figma.com/api/mcp/asset/5238fd81-5914-4c27-a40a-13906d30d439";
 const amenityImg3 = "https://www.figma.com/api/mcp/asset/43d0417d-f38e-4b37-b491-2ec41904acc6";
 const amenityImg4 = "https://www.figma.com/api/mcp/asset/20833829-4abd-4fd1-995f-3da656976ab5";
-import arrowIcon from "../assets/arrowRight.svg?url";
+import ArrowRight from "../assets/svg/arrowRight.svg";
 import BenefitsGallery from "../components/benefits/BenefitsGallery";
+
+const amenities = [
+  { img: amenityImg1, alt: "Lavandería",     title: "Lavandería",     sub: "Tu ropa, siempre limpia" },
+  { img: amenityImg2, alt: "Coworking",      title: "Coworking",      sub: "Tu espacio de trabajo" },
+  { img: amenityImg3, alt: "Zona de juegos", title: "Zona de juegos", sub: "Diversión para los pequeños" },
+  { img: amenityImg4, alt: "Sala de juntas", title: "Sala de juntas", sub: "Reuniones profesionales" },
+];
 ---
 
 <section class="benefits" id="precios">
@@ -15,27 +22,20 @@ import BenefitsGallery from "../components/benefits/BenefitsGallery";
   </div>
 
   <div class="benefitsGrid">
-    <div class="benefitsItem">
-      <img src={amenityImg1} alt="Lavandería" />
-    </div>
-    <div class="benefitsItem benefitsItemFeatured">
-      <img src={amenityImg2} alt="Coworking" />
-      <div class="benefitsCard">
-        <div class="benefitsCardText">
-          <p class="benefitsCardTitle">Coworking</p>
-          <p class="benefitsCardSub">Tu espacio de trabajo</p>
-        </div>
-        <div class="benefitsCardIcon">
-          <img class="icon" src={arrowIcon} alt="" />
+    {amenities.map(({ img, alt, title, sub }) => (
+      <div class="benefitsItem">
+        <img src={img} alt={alt} class="benefitsImg" />
+        <div class="benefitsCard">
+          <div class="benefitsCardText">
+            <p class="benefitsCardTitle">{title}</p>
+            <p class="benefitsCardSub">{sub}</p>
+          </div>
+          <a href="#contacto" class="benefitsCardIcon">
+            <ArrowRight width={25} height={25} stroke="white" />
+          </a>
         </div>
       </div>
-    </div>
-    <div class="benefitsItem">
-      <img src={amenityImg3} alt="Zona infantil" />
-    </div>
-    <div class="benefitsItem">
-      <img src={amenityImg4} alt="Sala de juntas" />
-    </div>
+    ))}
   </div>
 </section>
 
@@ -50,7 +50,7 @@ import BenefitsGallery from "../components/benefits/BenefitsGallery";
   }
 
   .benefitsTitle {
-    font-family: var(--f-satoshi);
+    font-family: 'Satoshi', sans-serif;
     font-weight: 700;
     font-size: 42px;
     line-height: 1.4;
@@ -67,44 +67,54 @@ import BenefitsGallery from "../components/benefits/BenefitsGallery";
 
   .benefitsItem {
     position: relative;
+    height: 478px;
     overflow: hidden;
   }
 
-  .benefitsItem img:not(.icon) {
+  .benefitsImg {
     width: 100%;
-    height: 478px;
+    height: 100%;
     object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
   }
 
-  .icon {
-    width: 15px;
-    height: 15px;
-    object-fit: contain;
-    flex-shrink: 0;
+  .benefitsItem:hover .benefitsImg {
+    transform: scale(1.04);
   }
 
   .benefitsCard {
     position: absolute;
-    bottom: 0;
-    left: 17px;
-    width: 253px;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
     height: 88px;
     background: #fff;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 16px;
+    padding: 0 20px;
+    opacity: 0;
+    transform: translateY(120px);
+    transition: opacity 0.35s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+  }
+
+  .benefitsItem:hover .benefitsCard {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
   }
 
   .benefitsCardTitle {
-    font-family: var(--f-satoshi);
+    font-family: 'Satoshi', sans-serif;
     font-weight: 700;
     font-size: 16px;
     color: var(--c-text);
   }
 
   .benefitsCardSub {
-    font-family: var(--f-satoshi);
+    font-family: 'Satoshi', sans-serif;
     font-weight: 300;
     font-size: 12px;
     color: var(--c-body);
@@ -119,6 +129,14 @@ import BenefitsGallery from "../components/benefits/BenefitsGallery";
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .benefitsCardIcon svg {
+    width: 25px;
+    height: 25px;
   }
 
   .benefitsMobile {

@@ -1,0 +1,184 @@
+---
+const logoSrc = "https://www.figma.com/api/mcp/asset/6133bf40-7c90-4014-858f-88e5db68c516";
+
+const links = [
+    {label: "Inicio", href: "#inicio"},
+    {label: "El proyecto", href: "#problema"},
+    {label: "Apartamentos", href: "#planos"},
+    {label: "Amenidades", href: "#precios"},
+    {label: "Nosotros", href: "#nosotros"},
+    {label: "Contacto", href: "#contacto"}
+];
+---
+
+<footer class="footer">
+    <div class="footerTop">
+        <div class="footerBrand">
+            <a href="#inicio">
+                <img src={logoSrc} alt="IN Constructora" class="footerLogo"/>
+            </a>
+            <p class="footerTagline">
+                Construyendo el lugar donde<br/>tu familia crece y vive mejor.
+            </p>
+        </div>
+
+        <div class="footerCol">
+            <p class="footerColTitle">Navegación</p>
+            <ul class="footerLinks">
+                {links.map(({label, href}) => (
+                        <li><a href={href} class="footerLink">{label}</a></li>
+                ))}
+            </ul>
+        </div>
+
+        <div class="footerCol">
+            <p class="footerColTitle">Contacto</p>
+            <ul class="footerLinks">
+                <li>
+                    <a href="mailto:info@inconstructora.com.co" class="footerLink">
+                        info@olimpovalledupar.com
+                    </a>
+                </li>
+                <li>
+                    <a href="tel:+573242120943" class="footerLink">+57 305 432 1890</a>
+                </li>
+                <li>
+                    <p class="footerLink noHover">Cl. 16 Bis # 34A-26<br/>Valledupar, Cesar</p>
+                </li>
+                <li>
+                    <p class="footerLink noHover">Lun – Vie: 8am – 6pm</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footerBottom">
+        <p class="footerCopy">© 2025 IN Constructora. Todos los derechos reservados.</p>
+        <p class="footerCopy">Olimpo — Valledupar, Cesar, Colombia</p>
+    </div>
+</footer>
+
+<style>
+    .footer {
+        background: var(--c-dark);
+        padding: 64px var(--px) 0;
+    }
+
+    .footerTop {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr;
+        gap: 48px;
+        padding-bottom: 48px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Brand */
+    .footerBrand {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .footerLogo {
+        height: 56px;
+        width: auto;
+        object-fit: contain;
+        display: block;
+    }
+
+    .footerTagline {
+        font-family: 'Satoshi', sans-serif;
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.5);
+        max-width: 240px;
+    }
+
+    .footerCol {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .footerColTitle {
+        font-family: 'Satoshi', sans-serif;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.35);
+    }
+
+    .footerLinks {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .footerLink {
+        font-family: 'Satoshi', sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        line-height: 1.5;
+        transition: color 0.2s;
+        display: block;
+    }
+
+    .footerLink:not(.noHover):hover {
+        color: var(--c-blue);
+    }
+
+    .footerLink.noHover {
+        cursor: default;
+    }
+
+    /* Bottom bar */
+    .footerBottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 0;
+    }
+
+    .footerCopy {
+        font-family: 'Satoshi', sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.3);
+    }
+
+    @media (max-width: 1024px) {
+        .footerTop {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .footerBrand {
+            grid-column: 1 / -1;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .footer {
+            padding: 48px var(--px) 0;
+        }
+
+        .footerTop {
+            grid-template-columns: 1fr;
+            gap: 36px;
+        }
+
+        .footerBrand {
+            grid-column: auto;
+        }
+
+        .footerBottom {
+            flex-direction: column;
+            gap: 6px;
+            text-align: center;
+            padding: 16px 0;
+        }
+    }
+</style>

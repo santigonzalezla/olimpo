@@ -1,0 +1,71 @@
+---
+const mapSrc = `https://maps.google.com/maps?q=Cl.+16+Bis+%2334A-26,+Valledupar,+Cesar&z=17&output=embed`;
+---
+
+<div class="mapWrapper" id="mapWrapper">
+    <iframe
+        id="mapIframe"
+        src={mapSrc}
+        width="100%"
+        height="100%"
+        style="border:0;"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Ubicación Olimpo — Valledupar"
+    ></iframe>
+    <div class="mapOverlay"></div>
+</div>
+
+<style>
+    .mapWrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transform: translateY(48px) scale(0.97);
+        transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .mapWrapper.visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    .mapOverlay {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: linear-gradient(
+            to bottom,
+            transparent 60%,
+            var(--c-navy) 100%
+        );
+    }
+
+    iframe {
+        display: block;
+        width: 100%;
+        height: 100%;
+        filter: grayscale(20%) contrast(1.05);
+    }
+</style>
+
+<script>
+    const wrapper = document.getElementById('mapWrapper');
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    wrapper?.classList.add('visible');
+                    observer.disconnect();
+                }
+            });
+        },
+        { threshold: 0.25 }
+    );
+
+    if (wrapper) observer.observe(wrapper);
+</script>

@@ -1,140 +1,140 @@
 ---
-import arrowIcon from "../../assets/arrowRight.svg?url";
+import ArrowRight from "../../assets/svg/arrowRight.svg";
 ---
 
-<form class="contactForm" action="#" method="POST">
-  <div class="contactFormFields">
-    <input
-      class="contactFormInput"
-      type="text"
-      name="nombre"
-      placeholder="Nombre"
-      required
-    />
-    <input
-      class="contactFormInput"
-      type="email"
-      name="email"
-      placeholder="Email"
-      required
-    />
-    <textarea
-      class="contactFormTextarea"
-      name="opcion"
-      placeholder="Opción Favorita"
-    ></textarea>
-  </div>
-  <button type="submit" class="contactFormSubmit">
-    Enviar Mensaje
-    <img class="icon" src={arrowIcon} alt="" />
-  </button>
-</form>
+<div class="formBox">
+  <form class="contactForm" action="#" method="POST">
+    <input class="field" type="text" name="nombre" placeholder="Nombre" required />
+    <input class="field" type="email" name="email" placeholder="Email" required />
+    <div class="row">
+      <input class="field" type="tel" name="telefono" placeholder="Teléfono" />
+      <div class="selectWrap">
+        <select class="field select" name="tipo" required>
+          <option value="" disabled selected>Tipo de apartamento</option>
+          <option value="studio">Apartaestudio</option>
+          <option value="3hab">3 Alcobas</option>
+        </select>
+        <svg class="selectArrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m6 9 6 6 6-6"/>
+        </svg>
+      </div>
+    </div>
+    <textarea class="field textarea" name="mensaje" placeholder="Mensaje"></textarea>
+    <button type="submit" class="submit">
+      Enviar Mensaje
+      <ArrowRight class="submitIcon" />
+    </button>
+  </form>
+</div>
 
 <style>
+  .formBox {
+    background: #243447;
+    padding: 32px;
+    width: 100%;
+  }
+
   .contactForm {
     display: flex;
     flex-direction: column;
-    gap: 32px;
-    background: #2b323d;
-    padding: 24px 16px;
-    width: 541px;
-    height: 409px;
-  }
-
-  .contactFormFields {
-    display: flex;
-    flex-direction: column;
     gap: 16px;
   }
 
-  .contactFormInput {
-    background: #000a1b;
-    border: none;
-    height: 53px;
-    padding: 0 26px;
-    font-family: var(--f-montserrat);
-    font-weight: 500;
-    font-size: 14px;
-    color: #fff;
-    width: 100%;
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
   }
 
-  .contactFormInput::placeholder {
-    color: #999;
-  }
-
-  .contactFormTextarea {
+  .field {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    height: 54px;
+    padding: 0 20px;
     background: #000a1b;
     border: none;
-    height: 119px;
-    padding: 16px 26px;
-    font-family: var(--f-montserrat);
-    font-weight: 500;
+    border-radius: 0;
+    font-family: 'Satoshi', sans-serif;
     font-size: 14px;
+    font-weight: 400;
     color: #fff;
-    width: 100%;
+    outline: none;
+    transition: background 0.2s;
+  }
+
+  .field::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .field:focus {
+    background: #001428;
+  }
+
+  .selectWrap {
+    position: relative;
+  }
+
+  .select {
+    cursor: pointer;
+    padding-right: 36px;
+  }
+
+  .select option {
+    background: #0d1f30;
+    color: #fff;
+  }
+
+  .selectArrow {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.4);
+    pointer-events: none;
+  }
+
+  .textarea {
+    height: 130px;
+    padding: 16px 20px;
     resize: none;
   }
 
-  .contactFormTextarea::placeholder {
-    color: #999;
-  }
-
-  .contactFormSubmit {
+  .submit {
+    -webkit-appearance: none;
+    appearance: none;
     display: inline-flex;
     align-items: center;
-    gap: 16px;
-    height: 56px;
+    gap: 12px;
+    height: 54px;
     padding: 0 32px;
     background: var(--c-blue);
     color: #fff;
-    font-family: var(--f-montserrat);
+    font-family: 'Satoshi', sans-serif;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 15px;
     border: none;
+    border-radius: 0;
     cursor: pointer;
+    transition: opacity 0.2s;
     align-self: flex-start;
-    transition: opacity 0.2s ease;
   }
 
-  .contactFormSubmit:hover {
-    opacity: 0.85;
-  }
+  .submit:hover { opacity: 0.85; }
 
-  .icon {
-    width: 15px;
-    height: 15px;
-    object-fit: contain;
+  .submitIcon {
+    width: 18px;
+    height: 18px;
+    stroke: white;
     flex-shrink: 0;
   }
 
   @media (max-width: 767px) {
-    .contactForm {
-      width: 100%;
-      height: auto;
-      gap: 20px;
-      padding: 20px 16px;
-    }
-
-    .contactFormFields {
-      gap: 12px;
-    }
-
-    .contactFormInput {
-      height: 46px;
-      font-size: 13px;
-    }
-
-    .contactFormTextarea {
-      height: 90px;
-      font-size: 13px;
-    }
-
-    .contactFormSubmit {
-      width: 100%;
-      justify-content: center;
-      height: 50px;
-      font-size: 15px;
-    }
+    .formBox { padding: 24px 20px; }
+    .row { grid-template-columns: 1fr; }
+    .submit { width: 100%; justify-content: center; }
   }
 </style>

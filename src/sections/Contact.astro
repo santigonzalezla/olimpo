@@ -1,119 +1,165 @@
 ---
 import ContactForm from "../components/contact/ContactForm.astro";
-
-const mapImg = "https://www.figma.com/api/mcp/asset/fa824a05-d727-4bc1-b03f-c426da26b5c5";
+import EmailIcon from "../assets/svg/email.svg";
+import PhoneIcon from "../assets/svg/phone.svg";
+import LocationIcon from "../assets/svg/location.svg";
 ---
 
 <section class="contact" id="contacto">
-  <div class="contactMap">
-    <img src={mapImg} alt="Ubicación Olimpo" />
+  <div class="contactLeft">
+    <div class="contactHeader">
+      <h2 class="contactTitle">Reserva tu<br/>apartamento hoy</h2>
+      <p class="contactDesc">
+        Un asesor de Olimpo te contactará para resolver tus dudas y guiarte en
+        el proceso. Sin compromisos, solo la información que necesitas.
+      </p>
+    </div>
+
+    <ul class="contactInfoList">
+      <li class="contactInfoItem">
+        <span class="contactInfoIcon">
+          <EmailIcon width={18} height={18} />
+        </span>
+        <div>
+          <a href="mailto:info@olimpovalledupar.com" class="contactInfoValue">info@olimpovalledupar.com</a>
+        </div>
+      </li>
+      <li class="contactInfoItem">
+        <span class="contactInfoIcon">
+          <PhoneIcon width={18} height={18} />
+        </span>
+        <div>
+          <a href="tel:+573242120943" class="contactInfoValue">+57 324 212 0943</a>
+        </div>
+      </li>
+      <li class="contactInfoItem">
+        <span class="contactInfoIcon">
+          <LocationIcon width={18} height={18} />
+        </span>
+        <div>
+          <p class="contactInfoValue">Cl. 16 Bis # 34A-26, Valledupar, Cesar</p>
+        </div>
+      </li>
+    </ul>
   </div>
 
-  <div class="contactInfo">
-    <h2 class="contactTitle">Reserva tu apartamento hoy</h2>
-    <p class="contactDesc">
-      Un asesor de Olimpo te contactará para resolver tus dudas y guiarte en
-      el proceso. Sin compromisos, solo la información que necesitas para tomar
-      la mejor decisión.
-    </p>
+  <div class="contactRight">
     <ContactForm />
   </div>
 </section>
 
 <style>
   .contact {
-    display: flex;
-    align-items: center;
-    height: 800px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
     background: var(--c-navy);
-    padding: 0 var(--px);
-    gap: 128px;
+    padding: 80px var(--px);
+    gap: 80px;
   }
 
-  .contactMap {
-    flex-shrink: 0;
-    width: 569px;
-    height: 616px;
-    overflow: hidden;
-  }
-
-  .contactMap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .contactInfo {
+  /* Left */
+  .contactLeft {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 48px;
+  }
+
+  .contactHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 
   .contactTitle {
-    font-family: var(--f-satoshi);
+    font-family: 'Satoshi', sans-serif;
     font-weight: 700;
-    font-size: 40px;
-    line-height: 1.105;
+    font-size: 44px;
+    line-height: 1.1;
     color: #fff;
-    max-width: 554px;
   }
 
   .contactDesc {
-    font-family: var(--f-satoshi);
+    font-family: 'Satoshi', sans-serif;
     font-weight: 300;
-    font-size: 18px;
-    line-height: 1.5;
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.65);
+    max-width: 380px;
+  }
+
+  /* Info list */
+  .contactInfoList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .contactInfoItem {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .contactInfoIcon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--c-blue);
+  }
+
+  .contactInfoIcon svg {
+    stroke: var(--c-blue);
+  }
+
+  .contactInfoLabel {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 4px;
+  }
+
+  .contactInfoValue {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
     color: #fff;
-    max-width: 525px;
+    line-height: 1.5;
+    text-decoration: none;
+  }
+
+  .contactInfoValue:hover { color: var(--c-blue); }
+
+  /* Right */
+  .contactRight {
+    padding-top: 8px;
   }
 
   @media (max-width: 1024px) {
     .contact {
-      height: auto;
-      padding: 60px var(--px);
       gap: 48px;
+      padding: 60px var(--px);
     }
 
-    .contactMap {
-      width: 360px;
-      height: 460px;
-    }
-
-    .contactTitle {
-      font-size: 30px;
-    }
+    .contactTitle { font-size: 34px; }
   }
 
   @media (max-width: 767px) {
     .contact {
-      flex-direction: column;
-      height: 100dvh;
-      padding: 0;
-      gap: 0;
-      align-items: stretch;
-      overflow: hidden;
+      grid-template-columns: 1fr;
+      padding: 48px var(--px);
+      gap: 40px;
     }
 
-    .contactMap {
-      width: 100%;
-      height: 300px;
-      flex-shrink: 0;
-    }
-
-    .contactInfo {
-      flex: 1;
-      min-height: 0;
-      overflow-y: auto;
-      padding: 28px var(--px) 32px;
-      gap: 16px;
-    }
-
-    .contactTitle {
-      font-size: 24px;
-    }
-
-    .contactDesc {
-      display: none;
-    }
+    .contactTitle { font-size: 28px; }
+    .contactDesc { display: none; }
   }
 </style>
