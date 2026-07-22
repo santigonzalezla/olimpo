@@ -71,7 +71,6 @@ export default function BenefitsGallery() {
                                     fontFamily: 'Satoshi, sans-serif',
                                     writingMode: 'vertical-rl',
                                     transform: 'rotate(180deg)',
-                                    letterSpacing: '1px',
                                     whiteSpace: 'nowrap',
                                 }}>
                                     {item.label}
