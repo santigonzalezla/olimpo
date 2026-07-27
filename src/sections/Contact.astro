@@ -1,5 +1,5 @@
 ---
-import ContactForm from "../components/contact/ContactForm.astro";
+import ContactForm from "../components/contact/ContactForm.tsx";
 import EmailIcon from "../assets/svg/email.svg";
 import PhoneIcon from "../assets/svg/phone.svg";
 import LocationIcon from "../assets/svg/location.svg";
@@ -44,7 +44,7 @@ import LocationIcon from "../assets/svg/location.svg";
   </div>
 
   <div class="contactRight">
-    <ContactForm />
+    <ContactForm client:load />
   </div>
 </section>
 

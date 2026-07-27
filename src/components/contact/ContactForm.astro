@@ -3,7 +3,7 @@ import ArrowRight from "../../assets/svg/arrowRight.svg";
 ---
 
 <div class="formBox">
-  <form class="contactForm" action="#" method="POST">
+  <form id="contactForm" class="contactForm" method="POST">
     <input class="field" type="text" name="nombre" placeholder="Nombre" required />
     <input class="field" type="email" name="email" placeholder="Email" required />
     <div class="row">
@@ -20,12 +20,47 @@ import ArrowRight from "../../assets/svg/arrowRight.svg";
       </div>
     </div>
     <textarea class="field textarea" name="mensaje" placeholder="Mensaje"></textarea>
-    <button type="submit" class="submit">
-      Enviar Mensaje
-      <ArrowRight class="submitIcon" />
+    <button type="submit" class="submit" id="submitBtn">
+      <span id="submitLabel">Enviar Mensaje</span>
+      <ArrowRight class="submitIcon" id="submitIcon" />
     </button>
+    <p id="formStatus" class="formStatus" aria-live="polite"></p>
   </form>
 </div>
+
+<script>
+  import { actions } from 'astro:actions';
+
+  const form = document.getElementById('contactForm') as HTMLFormElement;
+  const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement;
+  const submitLabel = document.getElementById('submitLabel') as HTMLSpanElement;
+  const statusEl = document.getElementById('formStatus') as HTMLParagraphElement;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    submitBtn.disabled = true;
+    submitLabel.textContent = 'Enviando...';
+    statusEl.textContent = '';
+    statusEl.className = 'formStatus';
+
+    const formData = new FormData(form);
+    const { error } = await actions.contact(formData);
+
+    if (error) {
+      statusEl.textContent = 'Ocurrió un error. Por favor intenta de nuevo.';
+      statusEl.classList.add('error');
+      submitBtn.disabled = false;
+      submitLabel.textContent = 'Enviar Mensaje';
+    } else {
+      statusEl.textContent = '¡Gracias! Nos pondremos en contacto contigo pronto.';
+      statusEl.classList.add('success');
+      form.reset();
+      submitBtn.disabled = false;
+      submitLabel.textContent = 'Enviar Mensaje';
+    }
+  });
+</script>
 
 <style>
   .formBox {
@@ -124,6 +159,7 @@ import ArrowRight from "../../assets/svg/arrowRight.svg";
   }
 
   .submit:hover { opacity: 0.85; }
+  .submit:disabled { opacity: 0.5; cursor: not-allowed; }
 
   .submitIcon {
     width: 18px;
@@ -131,6 +167,15 @@ import ArrowRight from "../../assets/svg/arrowRight.svg";
     stroke: white;
     flex-shrink: 0;
   }
+
+  .formStatus {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 14px;
+    min-height: 20px;
+  }
+
+  .formStatus.success { color: #4ade80; }
+  .formStatus.error   { color: #f87171; }
 
   @media (max-width: 767px) {
     .formBox { padding: 24px 20px; }
