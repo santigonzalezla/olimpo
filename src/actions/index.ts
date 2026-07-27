@@ -72,15 +72,16 @@ export const server = {
                                 {name: 'email', value: email},
                                 {name: 'phone', value: telefono || ''},
                                 {name: 'apartment_type', value: tipo},
-                                {name: 'message', value: mensaje || ''},
+                                {name: 'message', value: mensaje || ''}
                             ],
                             context: {
                                 pageUri: 'https://olimpo.inconstructora.com.co',
-                                pageName: 'Olimpo Landing',
-                            },
-                        }),
+                                pageName: 'Olimpo Landing'
+                            }
+                        })
                     }
-                ).catch(() => {
+                ).catch(() =>
+                {
                     // No bloqueamos el flujo si HubSpot falla
                 });
             }
