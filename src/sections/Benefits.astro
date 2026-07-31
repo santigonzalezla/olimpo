@@ -1,168 +1,171 @@
 ---
-const amenityImg1 = "https://www.figma.com/api/mcp/asset/f38a76bc-6efe-47ed-b668-d9a73edc0005";
-const amenityImg2 = "https://www.figma.com/api/mcp/asset/5238fd81-5914-4c27-a40a-13906d30d439";
-const amenityImg3 = "https://www.figma.com/api/mcp/asset/43d0417d-f38e-4b37-b491-2ec41904acc6";
-const amenityImg4 = "https://www.figma.com/api/mcp/asset/20833829-4abd-4fd1-995f-3da656976ab5";
+import lobbyImg from "../assets/images/benefits/lobby.png";
+import zonaSocialImg from "../assets/images/benefits/zonasocial.png";
+import zonaJuegosImg from "../assets/images/benefits/zonadejuegos.png";
+import parqueaderoImg from "../assets/images/benefits/parqueadero.png";
 import ArrowRight from "../assets/svg/arrowRight.svg";
 import BenefitsGallery from "../components/benefits/BenefitsGallery";
 
 const amenities = [
-  { img: amenityImg1, alt: "Lavandería",     title: "Lavandería",     sub: "Tu ropa, siempre limpia" },
-  { img: amenityImg2, alt: "Coworking",      title: "Coworking",      sub: "Tu espacio de trabajo" },
-  { img: amenityImg3, alt: "Zona de juegos", title: "Zona de juegos", sub: "Diversión para los pequeños" },
-  { img: amenityImg4, alt: "Sala de juntas", title: "Sala de juntas", sub: "Reuniones profesionales" },
+    {img: lobbyImg.src, alt: "Lobby", title: "Lobby", sub: "Tu entrada especial"},
+    {img: zonaSocialImg.src, alt: "Zona social", title: "Zona social", sub: "Espacio para compartir"},
+    {img: zonaJuegosImg.src, alt: "Zona de juegos", title: "Zona de juegos", sub: "Diversión para los pequeños"},
+    {img: parqueaderoImg.src, alt: "Parqueadero", title: "Parqueadero", sub: "Para tus invitados"}
 ];
 ---
 
 <section class="benefits" id="precios">
-  <h2 class="benefitsTitle">Descubre las amenidades que ofrecemos</h2>
+    <h2 class="benefitsTitle">Descubre las amenidades que ofrecemos</h2>
 
-  <div class="benefitsMobile">
-    <BenefitsGallery client:load />
-  </div>
+    <div class="benefitsMobile">
+        <BenefitsGallery client:load/>
+    </div>
 
-  <div class="benefitsGrid">
-    {amenities.map(({ img, alt, title, sub }) => (
-      <div class="benefitsItem">
-        <img src={img} alt={alt} class="benefitsImg" />
-        <div class="benefitsCard">
-          <div class="benefitsCardText">
-            <p class="benefitsCardTitle">{title}</p>
-            <p class="benefitsCardSub">{sub}</p>
-          </div>
-          <a href="#contacto" class="benefitsCardIcon">
-            <ArrowRight width={25} height={25} stroke="white" />
-          </a>
-        </div>
-      </div>
-    ))}
-  </div>
+    <div class="benefitsGrid">
+        {amenities.map(({img, alt, title, sub}) => (
+                <div class="benefitsItem">
+                    <img src={img} alt={alt} class="benefitsImg"/>
+                    <div class="benefitsCard">
+                        <div class="benefitsCardText">
+                            <p class="benefitsCardTitle">{title}</p>
+                            <p class="benefitsCardSub">{sub}</p>
+                        </div>
+                        <a href="#contacto" class="benefitsCardIcon">
+                            <ArrowRight width={25} height={25} stroke="white"/>
+                        </a>
+                    </div>
+                </div>
+        ))}
+    </div>
 </section>
 
 <style>
-  .benefits {
-    background: #fff;
-    height: 800px;
-    padding: 73px var(--px) 0;
-    display: flex;
-    flex-direction: column;
-    gap: 48px;
-  }
-
-  .benefitsTitle {
-    font-family: 'Satoshi', sans-serif;
-    font-weight: 700;
-    font-size: 42px;
-    line-height: 1.4;
-    color: var(--c-text);
-    max-width: 509px;
-  }
-
-  .benefitsGrid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 31px;
-    height: 478px;
-  }
-
-  .benefitsItem {
-    position: relative;
-    height: 478px;
-    overflow: hidden;
-  }
-
-  .benefitsImg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.4s ease;
-  }
-
-  .benefitsItem:hover .benefitsImg {
-    transform: scale(1.04);
-  }
-
-  .benefitsCard {
-    position: absolute;
-    bottom: 16px;
-    left: 16px;
-    right: 16px;
-    height: 88px;
-    background: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    opacity: 0;
-    transform: translateY(120px);
-    transition: opacity 0.35s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-    pointer-events: none;
-  }
-
-  .benefitsItem:hover .benefitsCard {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-  }
-
-  .benefitsCardTitle {
-    font-family: 'Satoshi', sans-serif;
-    font-weight: 700;
-    font-size: 16px;
-    color: var(--c-text);
-  }
-
-  .benefitsCardSub {
-    font-family: 'Satoshi', sans-serif;
-    font-weight: 300;
-    font-size: 12px;
-    color: var(--c-body);
-    margin-top: 4px;
-  }
-
-  .benefitsCardIcon {
-    width: 57px;
-    height: 57px;
-    background: var(--c-navy);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    cursor: pointer;
-    text-decoration: none;
-    color: #fff;
-  }
-
-  .benefitsCardIcon svg {
-    width: 25px;
-    height: 25px;
-  }
-
-  .benefitsMobile {
-    display: none;
-  }
-
-  @media (max-width: 767px) {
     .benefits {
-      height: 100dvh;
-      padding: 48px var(--px) 48px;
-      gap: 24px;
+        background: #FFF;
+        height: 100vh;
+        width: 100%;
+        max-width: var(--content-max);
+        margin: 0 auto;
+        padding: 73px var(--px) 0;
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
     }
 
     .benefitsTitle {
-      font-size: 28px;
-      flex-shrink: 0;
+        font-family: 'Satoshi', sans-serif;
+        font-weight: 700;
+        font-size: 42px;
+        line-height: 1.4;
+        color: var(--c-text);
+        max-width: 509px;
     }
 
     .benefitsGrid {
-      display: none;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 31px;
+        height: 478px;
+    }
+
+    .benefitsItem {
+        position: relative;
+        height: 478px;
+        overflow: hidden;
+    }
+
+    .benefitsImg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.4s ease;
+    }
+
+    .benefitsItem:hover .benefitsImg {
+        transform: scale(1.04);
+    }
+
+    .benefitsCard {
+        position: absolute;
+        bottom: 16px;
+        left: 16px;
+        right: 16px;
+        height: 88px;
+        background: #FFF;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        opacity: 0;
+        transform: translateY(120px);
+        transition: opacity 0.35s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        pointer-events: none;
+    }
+
+    .benefitsItem:hover .benefitsCard {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .benefitsCardTitle {
+        font-family: 'Satoshi', sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+        color: var(--c-text);
+    }
+
+    .benefitsCardSub {
+        font-family: 'Satoshi', sans-serif;
+        font-weight: 300;
+        font-size: 12px;
+        color: var(--c-body);
+        margin-top: 4px;
+    }
+
+    .benefitsCardIcon {
+        width: 57px;
+        height: 57px;
+        background: var(--c-navy);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        cursor: pointer;
+        text-decoration: none;
+        color: #FFF;
+    }
+
+    .benefitsCardIcon svg {
+        width: 25px;
+        height: 25px;
     }
 
     .benefitsMobile {
-      display: flex;
-      flex: 1;
-      min-height: 0;
+        display: none;
     }
-  }
+
+    @media (max-width: 767px) {
+        .benefits {
+            height: 100dvh;
+            padding: 48px var(--px) 48px;
+            gap: 24px;
+        }
+
+        .benefitsTitle {
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+
+        .benefitsGrid {
+            display: none;
+        }
+
+        .benefitsMobile {
+            display: flex;
+            flex: 1;
+            min-height: 0;
+        }
+    }
 </style>

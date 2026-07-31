@@ -1,8 +1,8 @@
 ---
 import UnitCard from "../components/units/UnitCard.astro";
 import PlansModal from "../components/units/PlansModal/PlansModal";
-
-const floorPlanImg = "https://www.figma.com/api/mcp/asset/2bea5c45-ecb6-43e9-8a1b-a28b196a3a8e";
+import aptplano from "../assets/images/apartment/aptplano.png";
+import studio1 from "../assets/images/studio/VISTA APARTAESTUDIO 1.png";
 
 const units = [
   {
@@ -11,7 +11,7 @@ const units = [
       "Funcional, moderno y pensado para quien quiere vivir bien sin complicaciones. Tu primer hogar propio, en el lugar correcto.",
     beds: 1,
     baths: 1,
-    image: floorPlanImg,
+    image: studio1.src,
   },
   {
     name: "3 Alcobas",
@@ -19,24 +19,26 @@ const units = [
       "El hogar que tu familia merece. Espacio de sobra para vivir, crecer y crear los recuerdos que duran toda la vida.",
     beds: 3,
     baths: 2,
-    image: floorPlanImg,
+    image: aptplano.src,
   },
 ];
 ---
 
 <section class="units" id="planos">
-  <h2 class="unitsTitle">Es hora de elegir tu espacio ideal</h2>
-  <div class="unitsCardsWrap">
-    <div class="unitsGrid">
-      {units.map((unit) => (
-        <UnitCard
-          name={unit.name}
-          description={unit.description}
-          beds={unit.beds}
-          baths={unit.baths}
-          image={unit.image}
-        />
-      ))}
+  <div class="unitsInner">
+    <h2 class="unitsTitle">Es hora de elegir tu espacio ideal</h2>
+    <div class="unitsCardsWrap">
+      <div class="unitsGrid">
+        {units.map((unit) => (
+          <UnitCard
+            name={unit.name}
+            description={unit.description}
+            beds={unit.beds}
+            baths={unit.baths}
+            image={unit.image}
+          />
+        ))}
+      </div>
     </div>
   </div>
 </section>
@@ -45,8 +47,19 @@ const units = [
 <style>
   .units {
     background: var(--c-dark);
-    height: 800px;
-    padding: 80px var(--px) 0;
+    height: 100vh;
+    padding: 80px 0 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .unitsInner {
+    width: 100%;
+    max-width: var(--content-max);
+    margin: 0 auto;
+    padding: 0 var(--px);
+    flex: 1;
+    min-height: 0;
     display: flex;
     flex-direction: column;
     gap: 48px;
@@ -84,7 +97,10 @@ const units = [
   @media (max-width: 767px) {
     .units {
       height: 100dvh;
-      padding: 48px var(--px) 48px;
+      padding: 48px 0;
+    }
+
+    .unitsInner {
       gap: 24px;
     }
 

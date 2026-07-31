@@ -5,11 +5,11 @@ const STRIP = 44;
 const items = [
     {
         img: 'https://www.figma.com/api/mcp/asset/f38a76bc-6efe-47ed-b668-d9a73edc0005',
-        label: 'Lavandería',
+        label: 'Lobby',
     },
     {
         img: 'https://www.figma.com/api/mcp/asset/5238fd81-5914-4c27-a40a-13906d30d439',
-        label: 'Coworking',
+        label: 'Zona Social',
     },
     {
         img: 'https://www.figma.com/api/mcp/asset/43d0417d-f38e-4b37-b491-2ec41904acc6',
@@ -17,7 +17,7 @@ const items = [
     },
     {
         img: 'https://www.figma.com/api/mcp/asset/20833829-4abd-4fd1-995f-3da656976ab5',
-        label: 'Sala de juntas',
+        label: 'Parqueadero',
     },
 ];
 

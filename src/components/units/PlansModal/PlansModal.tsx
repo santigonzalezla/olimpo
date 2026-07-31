@@ -7,6 +7,12 @@ import hab1 from '../../../assets/images/apartment/apthab1.png';
 import hab2 from '../../../assets/images/apartment/apthab2.png';
 import hab3 from '../../../assets/images/apartment/apthab3.png';
 import sala from '../../../assets/images/apartment/aptsala.png';
+import studio1 from '../../../assets/images/studio/VISTA APARTAESTUDIO 1.png';
+import studio2 from '../../../assets/images/studio/VISTA APARTAESTUDIO 2.png';
+import studio3 from '../../../assets/images/studio/VISTA APARTAESTUDIO 3.png';
+import studio4 from '../../../assets/images/studio/VISTA APARTAESTUDIO 4.png';
+import studio5 from '../../../assets/images/studio/VISTA APARTAESTUDIO 5.png';
+import studio6 from '../../../assets/images/studio/VISTA APARTAESTUDIO 6.png';
 import bedIcon from '../../../assets/svg/bed.svg?url';
 import bathIcon from '../../../assets/svg/bath.svg?url';
 import s from './PlansModal.module.css';
@@ -22,6 +28,14 @@ interface UnitData
 }
 
 const unitsData: Record<string, UnitData> = {
+    'Apartaestudio': {
+        name: 'Apartaestudio',
+        beds: 1,
+        baths: 1,
+        sqm: 35,
+        floorPlan: studio1.src,
+        images: [studio1.src, studio2.src, studio3.src, studio4.src, studio5.src, studio6.src]
+    },
     '3 Alcobas': {
         name: '3 Alcobas',
         beds: 3,

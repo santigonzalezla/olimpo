@@ -1,4 +1,5 @@
 ---
+import Logo from "../components/hero/Logo.astro";
 const logoSrc = "https://www.figma.com/api/mcp/asset/6133bf40-7c90-4014-858f-88e5db68c516";
 
 const links = [
@@ -12,11 +13,10 @@ const links = [
 ---
 
 <footer class="footer">
+    <div class="footerInner">
     <div class="footerTop">
         <div class="footerBrand">
-            <a href="#inicio">
-                <img src={logoSrc} alt="IN Constructora" class="footerLogo"/>
-            </a>
+            <Logo />
             <p class="footerTagline">
                 Construyendo el lugar donde<br/>tu familia crece y vive mejor.
             </p>
@@ -56,12 +56,20 @@ const links = [
         <p class="footerCopy">© 2025 IN Constructora. Todos los derechos reservados.</p>
         <p class="footerCopy">Olimpo — Valledupar, Cesar, Colombia</p>
     </div>
+    </div>
 </footer>
 
 <style>
     .footer {
         background: var(--c-dark);
-        padding: 64px var(--px) 0;
+        padding: 64px 0 0;
+    }
+
+    .footerInner {
+        width: 100%;
+        max-width: var(--content-max);
+        margin: 0 auto;
+        padding: 0 var(--px);
     }
 
     .footerTop {
@@ -162,7 +170,7 @@ const links = [
 
     @media (max-width: 767px) {
         .footer {
-            padding: 48px var(--px) 0;
+            padding: 48px 0 0;
         }
 
         .footerTop {
