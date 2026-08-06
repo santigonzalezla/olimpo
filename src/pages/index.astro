@@ -9,9 +9,11 @@ import MapSection from "../sections/MapSection.astro";
 import Contact from "../sections/Contact.astro";
 import Footer from "../sections/Footer.astro";
 import WhatsAppButton from "../components/WhatsAppButton/WhatsAppButton";
+import IntroSplash from "../components/intro/IntroSplash";
 ---
 
 <Layout>
+    <IntroSplash client:only="react" />
     <Hero/>
     <Problem/>
     <Units/>

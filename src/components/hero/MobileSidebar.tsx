@@ -3,9 +3,9 @@ import {createPortal} from 'react-dom';
 
 const links = [
     {href: '#proyecto', label: 'Proyecto'},
-    {href: '#planos', label: 'Planos'},
-    {href: '#precios', label: 'Precios'},
-    {href: '#ubicacion', label: 'Ubicación'}
+    {href: '#planos', label: 'Unidades'},
+    {href: '#precios', label: 'Amenidades'},
+    {href: '#mapa', label: 'Ubicación'}
 ];
 
 export default function MobileSidebar()

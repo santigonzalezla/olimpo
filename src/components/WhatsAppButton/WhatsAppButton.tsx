@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import waIcon from '../../assets/svg/whatsapp.svg?url';
 import s from './WhatsAppButton.module.css';
 
@@ -6,6 +6,20 @@ export default function WhatsAppButton()
 {
     const [open, setOpen] = useState(false);
     const [form, setForm] = useState({name: '', email: '', phone: '', message: ''});
+    const rootRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (!open) return;
+
+        const handleClickOutside = (e: MouseEvent) => {
+            if (rootRef.current && !rootRef.current.contains(e.target as Node)) {
+                setOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, [open]);
 
     const set = (field: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
         setForm(prev => ({...prev, [field]: e.target.value}));
@@ -25,7 +39,7 @@ export default function WhatsAppButton()
     };
 
     return (
-        <div className={s.root}>
+        <div className={s.root} ref={rootRef}>
             {open && (
                 <div className={s.popup}>
                     <div className={s.header}>

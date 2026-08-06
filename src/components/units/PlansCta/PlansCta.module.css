@@ -23,6 +23,7 @@
     height: 15px;
     object-fit: contain;
     flex-shrink: 0;
+    filter: brightness(0) invert(1);
 }
 
 @media (max-width: 767px) {

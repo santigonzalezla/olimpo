@@ -65,6 +65,20 @@ export default function ContactForm() {
             name="mensaje"
             placeholder="Mensaje"
           />
+          <label className={styles.consent}>
+            <input
+              className={styles.consentCheckbox}
+              type="checkbox"
+              name="autorizacionDatos"
+              required
+            />
+            <span>
+              Acepto la{' '}
+              <a href="/politica-tratamiento-datos" target="_blank" rel="noopener noreferrer">
+                Política de Tratamiento de Datos
+              </a>
+            </span>
+          </label>
           <button type="submit" className={styles.submit} disabled={loading}>
             {loading ? 'Enviando...' : 'Enviar Mensaje'}
             {!loading && (

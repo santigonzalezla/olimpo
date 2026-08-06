@@ -12,10 +12,12 @@ export const server = {
             email: z.string().email('Email inválido'),
             telefono: z.string().optional(),
             tipo: z.string().min(1, 'Selecciona un tipo de apartamento'),
-            mensaje: z.string().optional()
+            mensaje: z.string().optional(),
+            autorizacionDatos: z.string().min(1, 'Debes aceptar la Política de Tratamiento de Datos')
         }),
         handler: async ({nombre, email, telefono, tipo, mensaje}) =>
         {
+            const fechaAutorizacion = new Date().toLocaleString('es-CO', {timeZone: 'America/Bogota'});
             const tipoLabel = tipo === 'studio' ? 'Apartaestudio' : '3 Alcobas';
 
             const {error: emailError} = await resend.emails.send({
@@ -49,6 +51,10 @@ export const server = {
                 <td style="padding: 10px; background: #f4f6f8; font-weight: bold;">Mensaje</td>
                 <td style="padding: 10px;">${mensaje}</td>
               </tr>` : ''}
+              <tr>
+                <td style="padding: 10px; background: #f4f6f8; font-weight: bold;">Autorización datos</td>
+                <td style="padding: 10px;">Aceptada el ${fechaAutorizacion} (Colombia)</td>
+              </tr>
             </table>
           </div>
         `

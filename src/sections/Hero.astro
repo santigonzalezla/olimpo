@@ -60,6 +60,20 @@ import LocationIcon from "../assets/svg/location.svg";
     </div>
 </section>
 
+<script>
+    const hero = document.querySelector('.hero');
+
+    function revealHero() {
+        hero?.classList.add('reveal');
+    }
+
+    if (localStorage.getItem('olimpo_intro_seen')) {
+        revealHero();
+    } else {
+        window.addEventListener('olimpo:introDone', revealHero, { once: true });
+    }
+</script>
+
 <style>
     .hero {
         position: relative;
@@ -222,6 +236,44 @@ import LocationIcon from "../assets/svg/location.svg";
         height: 15px;
         object-fit: contain;
         flex-shrink: 0;
+    }
+
+    .nav,
+    .heroContent,
+    .heroStats {
+        opacity: 0;
+    }
+
+    .hero.reveal .nav {
+        animation: heroFadeUp 0.7s ease forwards;
+    }
+
+    .hero.reveal .heroContent {
+        animation: heroFadeUp 0.7s ease forwards 0.15s;
+    }
+
+    .hero.reveal .heroStats {
+        animation: heroFadeUp 0.7s ease forwards 0.3s;
+    }
+
+    @keyframes heroFadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(24px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .nav,
+        .heroContent,
+        .heroStats {
+            opacity: 1;
+            animation: none;
+        }
     }
 
     @media (max-width: 1024px) {

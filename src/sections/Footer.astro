@@ -3,12 +3,10 @@ import Logo from "../components/hero/Logo.astro";
 const logoSrc = "https://www.figma.com/api/mcp/asset/6133bf40-7c90-4014-858f-88e5db68c516";
 
 const links = [
-    {label: "Inicio", href: "#inicio"},
-    {label: "El proyecto", href: "#problema"},
-    {label: "Apartamentos", href: "#planos"},
+    {label: "Proyecto", href: "#proyecto"},
+    {label: "Unidades", href: "#planos"},
     {label: "Amenidades", href: "#precios"},
-    {label: "Nosotros", href: "#nosotros"},
-    {label: "Contacto", href: "#contacto"}
+    {label: "Nosotros", href: "#ubicacion"}
 ];
 ---
 
@@ -36,7 +34,7 @@ const links = [
             <ul class="footerLinks">
                 <li>
                     <a href="mailto:info@inconstructora.com.co" class="footerLink">
-                        info@olimpovalledupar.com
+                        info@inconstructora.com.co
                     </a>
                 </li>
                 <li>
@@ -53,8 +51,9 @@ const links = [
     </div>
 
     <div class="footerBottom">
-        <p class="footerCopy">© 2025 IN Constructora. Todos los derechos reservados.</p>
+        <p class="footerCopy">© 2026 IN Constructora. Todos los derechos reservados.</p>
         <p class="footerCopy">Olimpo — Valledupar, Cesar, Colombia</p>
+        <p class="footerCopy footerCredit">Powered by Nova GL Consulting</p>
     </div>
     </div>
 </footer>
@@ -148,6 +147,8 @@ const links = [
         display: flex;
         align-items: center;
         justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 8px 24px;
         padding: 20px 0;
     }
 
@@ -156,6 +157,10 @@ const links = [
         font-size: 12px;
         font-weight: 400;
         color: rgba(255, 255, 255, 0.3);
+    }
+
+    .footerCredit {
+        color: rgba(255, 255, 255, 0.4);
     }
 
     @media (max-width: 1024px) {

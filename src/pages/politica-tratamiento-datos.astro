@@ -1,0 +1,196 @@
+---
+// NIT provisional (900123456-7) — confirmar el NIT oficial de InConstructora SAS antes de publicar a producción.
+import Layout from "../layouts/Layout.astro";
+
+const empresa = {
+    razonSocial: "InConstructora SAS",
+    nit: "900.123.456-7",
+    direccion: "Cl. 16 Bis # 34A-26, Valledupar, Cesar, Colombia",
+    email: "info@inconstructora.com.co",
+    telefono: "+57 324 212 0943",
+};
+---
+
+<Layout
+    title="Política de Tratamiento de Datos Personales | Olimpo"
+    description="Política de tratamiento de datos personales de InConstructora SAS para el proyecto Olimpo."
+>
+    <main class="policy">
+        <div class="policyInner">
+            <a href="/" class="backLink">← Volver al inicio</a>
+
+            <h1>Política de Tratamiento de Datos Personales</h1>
+            <p class="updated">Última actualización: agosto de 2026</p>
+
+            <section>
+                <h2>1. Responsable del tratamiento</h2>
+                <p>
+                    <strong>{empresa.razonSocial}</strong>, identificada con NIT {empresa.nit},
+                    con domicilio en {empresa.direccion}, es la responsable del tratamiento de los
+                    datos personales que usted suministra a través de los formularios de contacto
+                    del sitio web del proyecto Olimpo.
+                </p>
+            </section>
+
+            <section>
+                <h2>2. Datos que recolectamos</h2>
+                <p>A través de nuestros formularios podemos recolectar:</p>
+                <ul>
+                    <li>Nombre completo</li>
+                    <li>Correo electrónico</li>
+                    <li>Número de teléfono</li>
+                    <li>Tipo de apartamento de interés</li>
+                    <li>Mensajes o comentarios que usted decida incluir</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>3. Finalidad del tratamiento</h2>
+                <p>Los datos suministrados serán utilizados para:</p>
+                <ul>
+                    <li>Contactarlo y dar respuesta a su solicitud de información sobre el proyecto Olimpo.</li>
+                    <li>Gestionar el proceso comercial de venta de apartamentos.</li>
+                    <li>Enviarle información comercial relacionada con el proyecto, cuando usted lo autorice.</li>
+                    <li>Fines estadísticos internos y mejora de nuestros canales de atención.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>4. Encargados del tratamiento</h2>
+                <p>
+                    Para poder prestar el servicio, sus datos pueden ser conocidos por proveedores
+                    tecnológicos que actúan como encargados del tratamiento, entre ellos plataformas
+                    de envío de correo electrónico y de gestión de relación con clientes (CRM). Estos
+                    proveedores solo tratan la información para los fines aquí descritos y bajo
+                    condiciones de confidencialidad y seguridad.
+                </p>
+            </section>
+
+            <section>
+                <h2>5. Sus derechos como titular de los datos</h2>
+                <p>De acuerdo con la Ley 1581 de 2012 y el Decreto 1377 de 2013, usted tiene derecho a:</p>
+                <ul>
+                    <li>Conocer, actualizar y rectificar sus datos personales.</li>
+                    <li>Solicitar prueba de la autorización otorgada.</li>
+                    <li>Ser informado sobre el uso que se le ha dado a sus datos.</li>
+                    <li>Presentar quejas ante la Superintendencia de Industria y Comercio (SIC) por infracciones a la ley.</li>
+                    <li>Revocar la autorización y/o solicitar la supresión de sus datos, cuando no exista un deber legal o contractual que impida su eliminación.</li>
+                    <li>Acceder de forma gratuita a sus datos personales que hayan sido objeto de tratamiento.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>6. Cómo ejercer sus derechos</h2>
+                <p>
+                    Puede ejercer sus derechos de Habeas Data escribiendo a
+                    {" "}<a href={`mailto:${empresa.email}`}>{empresa.email}</a> o comunicándose al
+                    teléfono {empresa.telefono}. Atenderemos su solicitud dentro de los términos
+                    establecidos por la ley.
+                </p>
+            </section>
+
+            <section>
+                <h2>7. Autorización</h2>
+                <p>
+                    Al marcar la casilla de aceptación en nuestros formularios, usted otorga de
+                    forma libre, previa, expresa e informada su autorización para que
+                    {" "}{empresa.razonSocial} trate sus datos personales conforme a esta política.
+                </p>
+            </section>
+        </div>
+    </main>
+</Layout>
+
+<style>
+    .policy {
+        width: 100%;
+        min-height: 100vh;
+        background: var(--c-white);
+        padding: 64px 0 96px;
+    }
+
+    .policyInner {
+        width: 100%;
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 0 var(--px);
+    }
+
+    .backLink {
+        display: inline-block;
+        font-family: 'Satoshi', sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--c-navy);
+        margin-bottom: 32px;
+    }
+
+    .backLink:hover {
+        opacity: 0.7;
+    }
+
+    h1 {
+        font-family: var(--f-stardom);
+        font-size: 36px;
+        line-height: 1.2;
+        color: var(--c-navy);
+        margin-bottom: 8px;
+    }
+
+    .updated {
+        font-family: 'Satoshi', sans-serif;
+        font-size: 13px;
+        color: rgba(36, 37, 39, 0.5);
+        margin-bottom: 40px;
+    }
+
+    section {
+        margin-bottom: 32px;
+    }
+
+    h2 {
+        font-family: 'Satoshi', sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--c-navy);
+        margin-bottom: 12px;
+    }
+
+    p {
+        font-family: 'Satoshi', sans-serif;
+        font-size: 15px;
+        line-height: 1.7;
+        color: var(--c-body);
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 8px;
+        padding-left: 20px;
+    }
+
+    li {
+        list-style: disc;
+        font-family: 'Satoshi', sans-serif;
+        font-size: 15px;
+        line-height: 1.6;
+        color: var(--c-body);
+    }
+
+    a {
+        color: var(--c-blue);
+        text-decoration: underline;
+    }
+
+    @media (max-width: 767px) {
+        .policy {
+            padding: 40px 0 64px;
+        }
+
+        h1 {
+            font-size: 28px;
+        }
+    }
+</style>
