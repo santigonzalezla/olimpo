@@ -1,12 +1,13 @@
 import {useState, useEffect, useRef} from 'react';
 import {createPortal} from 'react-dom';
 
-import aptplano from '../../../assets/images/apartment/aptplano.png';
+import plantaapto from '../../../assets/images/apartment/plantaapto.jpg';
 import render1 from '../../../assets/images/apartment/aptplanta2.png';
 import hab1 from '../../../assets/images/apartment/apthab1.png';
 import hab2 from '../../../assets/images/apartment/apthab2.png';
 import hab3 from '../../../assets/images/apartment/apthab3.png';
 import sala from '../../../assets/images/apartment/aptsala.png';
+import planostudio from '../../../assets/images/studio/planostudio.jpg';
 import studio1 from '../../../assets/images/studio/VISTA APARTAESTUDIO 1.png';
 import studio2 from '../../../assets/images/studio/VISTA APARTAESTUDIO 2.png';
 import studio3 from '../../../assets/images/studio/VISTA APARTAESTUDIO 3.png';
@@ -33,7 +34,7 @@ const unitsData: Record<string, UnitData> = {
         beds: 1,
         baths: 1,
         sqm: 35,
-        floorPlan: studio1.src,
+        floorPlan: planostudio.src,
         images: [studio1.src, studio2.src, studio3.src, studio4.src, studio5.src, studio6.src]
     },
     '3 Alcobas': {
@@ -41,7 +42,7 @@ const unitsData: Record<string, UnitData> = {
         beds: 3,
         baths: 2,
         sqm: 60,
-        floorPlan: aptplano.src,
+        floorPlan: plantaapto.src,
         images: [render1.src, hab1.src, hab2.src, hab3.src, sala.src]
     }
 };

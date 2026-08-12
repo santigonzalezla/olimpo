@@ -209,3 +209,88 @@
     filter: invert(1);
     opacity: 0.85;
 }
+
+/* Mobile layout */
+@media (max-width: 640px) {
+    .overlay {
+        padding: 10px;
+        align-items: center;
+    }
+
+    .frame {
+        max-width: none;
+        max-height: 100%;
+        padding: 14px 10px;
+        overflow-y: auto;
+    }
+
+    .closeBtn {
+        top: 26px;
+        right: 22px;
+    }
+
+    .card {
+        flex-direction: column;
+        height: auto;
+        max-height: none;
+        padding: 22px 18px;
+    }
+
+    .titleCol {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        padding: 0 0 16px;
+        order: 1;
+    }
+
+    .title {
+        writing-mode: horizontal-tb;
+        transform: none;
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .blueprintCol {
+        order: 2;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        padding: 0 0 16px;
+    }
+
+    .blueprint {
+        width: auto;
+        max-width: 65%;
+        max-height: 220px;
+    }
+
+    .carousel {
+        order: 3;
+        width: 100%;
+        padding: 0 0 16px;
+    }
+
+    .mainWrap {
+        height: 220px;
+        flex: none;
+    }
+
+    .thumbRow {
+        flex: 0 0 64px;
+    }
+
+    .thumb {
+        flex: 0 0 100px;
+    }
+
+    .specsCol {
+        order: 4;
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 28px;
+        padding: 0;
+    }
+}

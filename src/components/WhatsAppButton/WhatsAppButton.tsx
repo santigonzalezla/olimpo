@@ -33,7 +33,7 @@ export default function WhatsAppButton()
             form.phone && `Teléfono: ${form.phone}`,
             form.message && `Mensaje: ${form.message}`
         ].filter(Boolean).join('\n');
-        window.open(`https://wa.me/573242120943?text=${encodeURIComponent(text)}`, '_blank');
+        window.open(`https://wa.me/573148526909?text=${encodeURIComponent(text)}`, '_blank');
         setForm({name: '', email: '', phone: '', message: ''});
         setOpen(false);
     };
