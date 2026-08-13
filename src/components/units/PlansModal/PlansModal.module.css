@@ -73,7 +73,7 @@
 /* Col 2 — Blueprint */
 .blueprintCol {
     flex-shrink: 0;
-    width: 240px;
+    width: 380px;
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -138,6 +138,8 @@
 /* Thumb strip */
 .thumbRow {
     flex: 0 0 76px;
+    width: 100%;
+    min-width: 0;
     display: flex;
     gap: 8px;
     align-items: stretch;

@@ -74,7 +74,7 @@ export default function ContactForm() {
             />
             <span>
               Acepto la{' '}
-              <a href="/politica-tratamiento-datos" target="_blank" rel="noopener noreferrer">
+              <a href="/politica-tratamiento-datos">
                 Política de Tratamiento de Datos
               </a>
             </span>

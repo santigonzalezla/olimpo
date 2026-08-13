@@ -5,7 +5,7 @@ import Layout from "../layouts/Layout.astro";
 const empresa = {
     razonSocial: "InConstructora SAS",
     nit: "900.123.456-7",
-    direccion: "Transversal 26 # Calle 16 Bis - 1, Valledupar, Cesar, Colombia",
+    direccion: "Calle 9C # 19 A-47, Barrio Los Cortijos, Valledupar, Cesar, Colombia",
     email: "info@inconstructora.com.co",
     telefono: "+57 314 852 6909",
 };
@@ -16,87 +16,119 @@ const empresa = {
     description="Política de tratamiento de datos personales de InConstructora SAS para el proyecto Olimpo."
 >
     <main class="policy">
-        <div class="policyInner">
+        <div class="policyShell">
             <a href="/" class="backLink">← Volver al inicio</a>
 
-            <h1>Política de Tratamiento de Datos Personales</h1>
-            <p class="updated">Última actualización: agosto de 2026</p>
+            <header class="policyHero">
+                <h1>Política de Tratamiento de Datos Personales</h1>
+                <p class="tagline">Transparencia y cuidado en el manejo de tu información</p>
+                <p class="updated">Última actualización: agosto de 2026</p>
+            </header>
 
-            <section>
-                <h2>1. Responsable del tratamiento</h2>
-                <p>
-                    <strong>{empresa.razonSocial}</strong>, identificada con NIT {empresa.nit},
-                    con domicilio en {empresa.direccion}, es la responsable del tratamiento de los
-                    datos personales que usted suministra a través de los formularios de contacto
-                    del sitio web del proyecto Olimpo.
-                </p>
-            </section>
+            <div class="policyGrid">
+                <aside class="policySidebar">
+                    <div class="companyCard">
+                        <p class="companyCardLabel">Responsable del tratamiento</p>
+                        <p class="companyName">{empresa.razonSocial}</p>
+                        <dl class="companyDetails">
+                            <div>
+                                <dt>NIT</dt>
+                                <dd>{empresa.nit}</dd>
+                            </div>
+                            <div>
+                                <dt>Dirección</dt>
+                                <dd>{empresa.direccion}</dd>
+                            </div>
+                            <div>
+                                <dt>Correo</dt>
+                                <dd><a href={`mailto:${empresa.email}`}>{empresa.email}</a></dd>
+                            </div>
+                            <div>
+                                <dt>Teléfono</dt>
+                                <dd><a href={`tel:${empresa.telefono.replace(/\s/g, '')}`}>{empresa.telefono}</a></dd>
+                            </div>
+                        </dl>
+                    </div>
+                </aside>
 
-            <section>
-                <h2>2. Datos que recolectamos</h2>
-                <p>A través de nuestros formularios podemos recolectar:</p>
-                <ul>
-                    <li>Nombre completo</li>
-                    <li>Correo electrónico</li>
-                    <li>Número de teléfono</li>
-                    <li>Tipo de apartamento de interés</li>
-                    <li>Mensajes o comentarios que usted decida incluir</li>
-                </ul>
-            </section>
+                <div class="policyBody">
+                    <section>
+                        <h2><span class="num">01</span>Responsable del tratamiento</h2>
+                        <p>
+                            <strong>{empresa.razonSocial}</strong>, identificada con NIT {empresa.nit},
+                            con domicilio en {empresa.direccion}, es la responsable del tratamiento de los
+                            datos personales que usted suministra a través de los formularios de contacto
+                            del sitio web del proyecto Olimpo.
+                        </p>
+                    </section>
 
-            <section>
-                <h2>3. Finalidad del tratamiento</h2>
-                <p>Los datos suministrados serán utilizados para:</p>
-                <ul>
-                    <li>Contactarlo y dar respuesta a su solicitud de información sobre el proyecto Olimpo.</li>
-                    <li>Gestionar el proceso comercial de venta de apartamentos.</li>
-                    <li>Enviarle información comercial relacionada con el proyecto, cuando usted lo autorice.</li>
-                    <li>Fines estadísticos internos y mejora de nuestros canales de atención.</li>
-                </ul>
-            </section>
+                    <section>
+                        <h2><span class="num">02</span>Datos que recolectamos</h2>
+                        <p>A través de nuestros formularios podemos recolectar:</p>
+                        <ul>
+                            <li>Nombre completo</li>
+                            <li>Correo electrónico</li>
+                            <li>Número de teléfono</li>
+                            <li>Tipo de apartamento de interés</li>
+                            <li>Mensajes o comentarios que usted decida incluir</li>
+                        </ul>
+                    </section>
 
-            <section>
-                <h2>4. Encargados del tratamiento</h2>
-                <p>
-                    Para poder prestar el servicio, sus datos pueden ser conocidos por proveedores
-                    tecnológicos que actúan como encargados del tratamiento, entre ellos plataformas
-                    de envío de correo electrónico y de gestión de relación con clientes (CRM). Estos
-                    proveedores solo tratan la información para los fines aquí descritos y bajo
-                    condiciones de confidencialidad y seguridad.
-                </p>
-            </section>
+                    <section>
+                        <h2><span class="num">03</span>Finalidad del tratamiento</h2>
+                        <p>Los datos suministrados serán utilizados para:</p>
+                        <ul>
+                            <li>Contactarlo y dar respuesta a su solicitud de información sobre el proyecto Olimpo.</li>
+                            <li>Gestionar el proceso comercial de venta de apartamentos.</li>
+                            <li>Enviarle información comercial relacionada con el proyecto, cuando usted lo autorice.</li>
+                            <li>Fines estadísticos internos y mejora de nuestros canales de atención.</li>
+                        </ul>
+                    </section>
 
-            <section>
-                <h2>5. Sus derechos como titular de los datos</h2>
-                <p>De acuerdo con la Ley 1581 de 2012 y el Decreto 1377 de 2013, usted tiene derecho a:</p>
-                <ul>
-                    <li>Conocer, actualizar y rectificar sus datos personales.</li>
-                    <li>Solicitar prueba de la autorización otorgada.</li>
-                    <li>Ser informado sobre el uso que se le ha dado a sus datos.</li>
-                    <li>Presentar quejas ante la Superintendencia de Industria y Comercio (SIC) por infracciones a la ley.</li>
-                    <li>Revocar la autorización y/o solicitar la supresión de sus datos, cuando no exista un deber legal o contractual que impida su eliminación.</li>
-                    <li>Acceder de forma gratuita a sus datos personales que hayan sido objeto de tratamiento.</li>
-                </ul>
-            </section>
+                    <section>
+                        <h2><span class="num">04</span>Encargados del tratamiento</h2>
+                        <p>
+                            Para poder prestar el servicio, sus datos pueden ser conocidos por proveedores
+                            tecnológicos que actúan como encargados del tratamiento, entre ellos plataformas
+                            de envío de correo electrónico y de gestión de relación con clientes (CRM). Estos
+                            proveedores solo tratan la información para los fines aquí descritos y bajo
+                            condiciones de confidencialidad y seguridad.
+                        </p>
+                    </section>
 
-            <section>
-                <h2>6. Cómo ejercer sus derechos</h2>
-                <p>
-                    Puede ejercer sus derechos de Habeas Data escribiendo a
-                    {" "}<a href={`mailto:${empresa.email}`}>{empresa.email}</a> o comunicándose al
-                    teléfono {empresa.telefono}. Atenderemos su solicitud dentro de los términos
-                    establecidos por la ley.
-                </p>
-            </section>
+                    <section>
+                        <h2><span class="num">05</span>Sus derechos como titular de los datos</h2>
+                        <p>De acuerdo con la Ley 1581 de 2012 y el Decreto 1377 de 2013, usted tiene derecho a:</p>
+                        <ul>
+                            <li>Conocer, actualizar y rectificar sus datos personales.</li>
+                            <li>Solicitar prueba de la autorización otorgada.</li>
+                            <li>Ser informado sobre el uso que se le ha dado a sus datos.</li>
+                            <li>Presentar quejas ante la Superintendencia de Industria y Comercio (SIC) por infracciones a la ley.</li>
+                            <li>Revocar la autorización y/o solicitar la supresión de sus datos, cuando no exista un deber legal o contractual que impida su eliminación.</li>
+                            <li>Acceder de forma gratuita a sus datos personales que hayan sido objeto de tratamiento.</li>
+                        </ul>
+                    </section>
 
-            <section>
-                <h2>7. Autorización</h2>
-                <p>
-                    Al marcar la casilla de aceptación en nuestros formularios, usted otorga de
-                    forma libre, previa, expresa e informada su autorización para que
-                    {" "}{empresa.razonSocial} trate sus datos personales conforme a esta política.
-                </p>
-            </section>
+                    <section>
+                        <h2><span class="num">06</span>Cómo ejercer sus derechos</h2>
+                        <p>
+                            Puede ejercer sus derechos de Habeas Data escribiendo a
+                            {" "}<a href={`mailto:${empresa.email}`}>{empresa.email}</a> o comunicándose al
+                            teléfono {empresa.telefono}. Atenderemos su solicitud dentro de los términos
+                            establecidos por la ley.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2><span class="num">07</span>Autorización</h2>
+                        <p>
+                            Al marcar la casilla de aceptación en nuestros formularios, usted otorga de
+                            forma libre, previa, expresa e informada su autorización para que
+                            {" "}{empresa.razonSocial} trate sus datos personales conforme a esta política.
+                        </p>
+                    </section>
+                </div>
+            </div>
         </div>
     </main>
 </Layout>
@@ -105,13 +137,13 @@ const empresa = {
     .policy {
         width: 100%;
         min-height: 100vh;
-        background: var(--c-white);
-        padding: 64px 0 96px;
+        background: #fff;
+        padding: 72px 0 120px;
     }
 
-    .policyInner {
+    .policyShell {
         width: 100%;
-        max-width: 760px;
+        max-width: var(--content-max);
         margin: 0 auto;
         padding: 0 var(--px);
     }
@@ -122,44 +154,145 @@ const empresa = {
         font-size: 14px;
         font-weight: 600;
         color: var(--c-navy);
-        margin-bottom: 32px;
+        margin-bottom: 40px;
+        transition: opacity 0.2s;
     }
 
     .backLink:hover {
         opacity: 0.7;
     }
 
+    .policyHero {
+        margin-bottom: 48px;
+    }
+
     h1 {
-        font-family: var(--f-stardom);
-        font-size: 36px;
+        font-family: 'Satoshi', sans-serif;
+        font-weight: 700;
+        font-size: 42px;
         line-height: 1.2;
-        color: var(--c-navy);
-        margin-bottom: 8px;
+        color: var(--c-text);
+        max-width: 720px;
+    }
+
+    .tagline {
+        font-family: var(--f-stardom);
+        font-size: 16px;
+        line-height: 1.4;
+        color: #000;
+        margin-top: 12px;
     }
 
     .updated {
         font-family: 'Satoshi', sans-serif;
         font-size: 13px;
-        color: rgba(36, 37, 39, 0.5);
-        margin-bottom: 40px;
+        color: rgba(30, 30, 30, 0.5);
+        margin-top: 16px;
     }
 
-    section {
-        margin-bottom: 32px;
+    .policyGrid {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        align-items: start;
+        gap: 48px;
     }
 
-    h2 {
+    .policySidebar {
+        position: sticky;
+        top: 32px;
+    }
+
+    .companyCard {
+        background: var(--c-navy);
+        padding: 28px;
+    }
+
+    .companyCardLabel {
+        font-family: 'Satoshi', sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.5);
+        margin-bottom: 10px;
+    }
+
+    .companyName {
         font-family: 'Satoshi', sans-serif;
         font-size: 18px;
         font-weight: 700;
+        color: #fff;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .companyDetails {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .companyDetails dt {
+        font-family: 'Satoshi', sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.45);
+        margin-bottom: 3px;
+    }
+
+    .companyDetails dd {
+        font-family: 'Satoshi', sans-serif;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #fff;
+    }
+
+    .companyDetails a {
+        color: #fff;
+    }
+
+    .policyBody {
+        background: #fff;
+    }
+
+    section {
+        padding-bottom: 32px;
+        margin-bottom: 32px;
+        border-bottom: 1px solid rgba(20, 43, 63, 0.12);
+    }
+
+    section:last-child {
+        padding-bottom: 0;
+        margin-bottom: 0;
+        border-bottom: none;
+    }
+
+    h2 {
+        display: flex;
+        align-items: baseline;
+        gap: 12px;
+        font-family: 'Satoshi', sans-serif;
+        font-size: 19px;
+        font-weight: 700;
         color: var(--c-navy);
-        margin-bottom: 12px;
+        margin-bottom: 14px;
+    }
+
+    .num {
+        flex-shrink: 0;
+        color: var(--c-blue);
+        font-family: 'Satoshi', sans-serif;
+        font-size: 14px;
+        font-weight: 800;
     }
 
     p {
         font-family: 'Satoshi', sans-serif;
         font-size: 15px;
-        line-height: 1.7;
+        line-height: 1.75;
         color: var(--c-body);
     }
 
@@ -184,13 +317,23 @@ const empresa = {
         text-decoration: underline;
     }
 
+    @media (max-width: 1024px) {
+        .policyGrid {
+            grid-template-columns: 1fr;
+        }
+
+        .policySidebar {
+            position: static;
+        }
+    }
+
     @media (max-width: 767px) {
         .policy {
             padding: 40px 0 64px;
         }
 
         h1 {
-            font-size: 28px;
+            font-size: 30px;
         }
     }
 </style>

@@ -1,13 +1,13 @@
 import {useState, useEffect, useRef} from 'react';
 import {createPortal} from 'react-dom';
 
-import plantaapto from '../../../assets/images/apartment/plantaapto.jpg';
+import aptVista3d from '../../../assets/images/apartment/VISTA 3D APARTAMENTO 3 HABITACIONES.png';
 import render1 from '../../../assets/images/apartment/aptplanta2.png';
 import hab1 from '../../../assets/images/apartment/apthab1.png';
 import hab2 from '../../../assets/images/apartment/apthab2.png';
 import hab3 from '../../../assets/images/apartment/apthab3.png';
 import sala from '../../../assets/images/apartment/aptsala.png';
-import planostudio from '../../../assets/images/studio/planostudio.jpg';
+import studioVista3d from '../../../assets/images/studio/VISTA 3D APARTAESTUDIO.png';
 import studio1 from '../../../assets/images/studio/VISTA APARTAESTUDIO 1.png';
 import studio2 from '../../../assets/images/studio/VISTA APARTAESTUDIO 2.png';
 import studio3 from '../../../assets/images/studio/VISTA APARTAESTUDIO 3.png';
@@ -33,16 +33,16 @@ const unitsData: Record<string, UnitData> = {
         name: 'Apartaestudio',
         beds: 1,
         baths: 1,
-        sqm: 35,
-        floorPlan: planostudio.src,
+        sqm: 23.6,
+        floorPlan: studioVista3d.src,
         images: [studio1.src, studio2.src, studio3.src, studio4.src, studio5.src, studio6.src]
     },
     '3 Alcobas': {
         name: '3 Alcobas',
         beds: 3,
         baths: 2,
-        sqm: 60,
-        floorPlan: plantaapto.src,
+        sqm: 64.26,
+        floorPlan: aptVista3d.src,
         images: [render1.src, hab1.src, hab2.src, hab3.src, sala.src]
     }
 };
